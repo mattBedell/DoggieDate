@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const APP_DIR = path.resolve(__dirname, 'application/src');
 const BUILD_DIR = path.resolve(__dirname, 'application/src/client/public');
@@ -21,11 +22,22 @@ const config = {
     loaders : [
       {
         test : /\.(js|jsx)$/,
-        include : APP_DIR,
-        loader : path.resolve(__dirname, 'node_modules/babel-loader')
+        include: APP_DIR,
+        loader : 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        include: APP_DIR,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('style.css'),
+  ]
 }
 
 module.exports = config;
