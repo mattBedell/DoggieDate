@@ -2,28 +2,27 @@ const webpack = require('webpack');
 const path = require('path');
 
 
-const APP_DIR = path.resolve(__dirname, 'application/src/client/app');
+const APP_DIR = path.resolve(__dirname, 'application/src');
 const BUILD_DIR = path.resolve(__dirname, 'application/src/client/public');
 
 const config = {
   devtool: 'eval-source-map',
-  entry: APP_DIR + '/index.jsx',
+  entry: APP_DIR + '/client/app/index.jsx',
     // [
     // 'webpack/hot/dev-server',
     // 'webpack-hot-middleware/client',
 
   // ],
   output: {
-    path: '/',
-    publicPath: BUILD_DIR,
+    path: BUILD_DIR,
     filename: 'bundle.js'
   },
   module : {
     loaders : [
       {
-        test : /\.jsx?/,
+        test : /\.(js|jsx)$/,
         include : APP_DIR,
-        loader : 'babel'
+        loader : path.resolve(__dirname, 'node_modules/babel-loader')
       }
     ]
   }
