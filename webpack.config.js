@@ -7,15 +7,14 @@ const APP_DIR = path.resolve(__dirname, 'application/src');
 const BUILD_DIR = path.resolve(__dirname, 'application/src/client/public');
 
 const config = {
-  devtool: 'eval-source-map',
-  entry: APP_DIR + '/client/app/index.jsx',
-    // [
-    // 'webpack/hot/dev-server',
-    // 'webpack-hot-middleware/client',
-
-  // ],
+    entry:    [
+    'webpack/hot/dev-server',
+    'webpack-hot-middleware/client',
+    `${APP_DIR}/client/app/index.jsx`
+  ],
   output: {
-    path: BUILD_DIR,
+    path: '/',
+    publicPath: 'http://localhost:3000/scripts/',
     filename: 'bundle.js'
   },
   module : {
@@ -37,7 +36,9 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
-  ]
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  target: 'web'
 }
 
 module.exports = config;
