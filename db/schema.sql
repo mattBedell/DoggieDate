@@ -27,7 +27,6 @@ CREATE TABLE posts (
   match_id INT REFERENCES matches (id) ON DELETE CASCADE,
   post VARCHAR NOT NULL,
   poster INT REFERENCES members (id) ON DELETE CASCADE,
-  post_to INT REFERENCES members (id) ON DELETE CASCADE,
   time_stamp TIMESTAMP DEFAULT NOW()
 );
 
