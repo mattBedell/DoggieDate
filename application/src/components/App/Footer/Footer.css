@@ -1,0 +1,11 @@
+.footer {
+  height: 10vh;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+.footer p {
+  color: white;
+  line-height: 10vh;
+}
