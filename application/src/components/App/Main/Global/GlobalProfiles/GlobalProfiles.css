@@ -1,0 +1,13 @@
+.globalprofiles {
+  height: 30%;
+  width: 16.666%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalprofiles img {
+  height: 85%;
+  width: 85%;
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+.mainheader {
+  height: 5%;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainheader h2 {
+  margin: 0 0 0 2%;
+  font-size: 15px;
+}

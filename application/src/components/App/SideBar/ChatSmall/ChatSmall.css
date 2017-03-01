@@ -1,0 +1,17 @@
+.chatsmall {
+  height: 12%;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.chatsmall img {
+  height: 60%;
+  width: 15%;
+  margin: 0 5% 0 5%;
+  text-align: center;
+}
