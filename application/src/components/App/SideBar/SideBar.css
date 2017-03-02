@@ -1,0 +1,13 @@
+.sidebar {
+  height: 75vh;
+  width: 20%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 1.66%;
+  overflow: scroll;
+}

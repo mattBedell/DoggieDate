@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './../../components/HelloWorld/HelloWorld.jsx';
+import App from './../../components/App/App.jsx';
 
 if (module.hot) {
     module.hot.accept()
 }
 ReactDOM.render(
-  <HelloWorld />,
+  <App />,
   document.querySelector('#root-container')
   );
