@@ -1,6 +1,11 @@
 body {
-  background-color: blue;
+  background-color: green;
 }
 .helloText {
-  color: green;
+  color: white;
+}
+.hidden {
+  height: 400px;
+  width: 400px;
+  background-color: red;
 }

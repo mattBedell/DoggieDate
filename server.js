@@ -6,26 +6,25 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
-const config = path.join(__dirname, '/webpack.config.js');
-const appIndex = path.join(__dirname, '/application/src/client/index.html');
+const isDev = process.env.NODE_ENV ? false : true;
+console.log(isDev, 'express');
+const config = require(path.join(__dirname, '/webpack.config.js'));
+
 
 
 const compiler = webpack(config);
 
-app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath
-}))
-app.use(webpackHotMiddleware(compiler, {
-    log: console.log
-}))
+if(isDev) {
+  app.use(require("webpack-dev-middleware")(compiler, {
+    noInfo: true, publicPath: config.output.publicPath
+  }));
 
-router.route('/')
-  .get((req, res, next) => {
-    res.sendFile(appIndex)
-})
+  app.use(require("webpack-hot-middleware")(compiler));
 
-
-app.use(router)
+  app.get('', (req, res, next) => {
+    res.sendFile('/index.html')
+  })
+}
 
 
 
