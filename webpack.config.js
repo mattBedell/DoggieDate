@@ -29,10 +29,12 @@ const config = {
       {
         test: /\.css$/,
         include: APP_DIR,
-        use: isDev ? [ 'style-loader', 'css-loader' ] : ExtractTextPlugin.extract({
-                                                                fallback: "style-loader",
-                                                                use: "css-loader"
-                                                                })
+        use: isDev ? [
+          'style-loader', 'css-loader' ] :
+          ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+            })
       }
     ]
   },
@@ -42,7 +44,10 @@ const config = {
 }
 if(isDev) {
   config.entry.unshift('webpack-hot-middleware/client')
-  config.plugins = [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin(), new HtmlWebpackPlugin({
+  config.plugins = [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({
     title: 'DoggieDate',
     xhtml: true,
     inject: false,
