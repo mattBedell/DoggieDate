@@ -7,7 +7,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const isDev = process.env.NODE_ENV ? false : true;
-console.log(isDev, 'express');
 const config = require(path.join(__dirname, '/webpack.config.js'));
 
 

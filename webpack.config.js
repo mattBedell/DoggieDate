@@ -40,7 +40,6 @@ const config = {
     new ExtractTextPlugin(`style.css`)
   ]
 }
-console.log(isDev);
 if(isDev) {
   config.entry.unshift('webpack-hot-middleware/client')
   config.plugins = [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin(), new HtmlWebpackPlugin({
