@@ -5,14 +5,14 @@ class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <h1>DoggieDate</h1>
+        <img id='logo' src='./../../../application/assets/DoggieDateLogo.png' alt='DoggieDate' />
         <input placeholder='search users' />
         <div className='nav'>
-          <h3>Global</h3>
-          <h3>Nearby</h3>
-          <h3>Matches</h3>
-          <h3>Chats</h3>
-          <h3>Profile</h3>
+          <img className='icon' src='./../../../application/assets/icon-global.png' alt='Global' />
+          <img className='icon' src='./../../../application/assets/icon-nearby.png' alt='Nearby' />
+          <img className='icon' src='./../../../application/assets/icon-match.png' alt='Matches' />
+          <img className='icon' src='./../../../application/assets/icon-chat.png' alt='Chats' />
+          <img className='icon' src='./../../../application/assets/icon-profile.png' alt='Profile' />
         </div>
       </div>
     );

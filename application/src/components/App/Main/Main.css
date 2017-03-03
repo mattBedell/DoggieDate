@@ -1,11 +1,10 @@
 .main {
-  height: 75vh;
+  height: 80vh;
   width: 75%;
-  box-sizing: border-box;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   margin-left: 1.66%;
+  background-color: white;
 }
