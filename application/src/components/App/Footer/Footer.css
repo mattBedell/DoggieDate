@@ -1,12 +1,13 @@
 .footer {
-  height: 10vh;
+  height: 5vh;
   width: 100%;
-  background-image: url('./../../../../assets/puppy.jpg');
-  background-color: black;
-  text-align: center;
+  background-color: white;
+  text-align: left;
 }
 
 .footer p {
-  color: white;
-  line-height: 10vh;
+  color: black;
+  line-height: 5vh;
+  font-size: 10px;
+  margin: 0 0 0 2.5%;
 }

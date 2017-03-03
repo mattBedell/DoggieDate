@@ -5,7 +5,7 @@ class ChatSmall extends Component {
   render() {
     return (
       <div className='chatsmall'>
-        <img src='' alt='pic' />
+        <img src='./../../../application/assets/icon-profile.png' alt='pic' />
         <p>Profile Name</p>
       </div>
     );
