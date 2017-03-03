@@ -1,4 +1,4 @@
-.logo-box {
+.header {
   height: 10vh;
   width: 96.25%;
   display: flex;
@@ -9,7 +9,7 @@
   box-shadow: 0 0 1em black;
 }
 
-.logo-box input {
+.header input {
   height: 30%;
   width: 20%;
   margin: 2% 0 0 0;
