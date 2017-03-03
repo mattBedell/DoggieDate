@@ -3,6 +3,7 @@
   width: 100%;
   background-color: white;
   text-align: left;
+  background-image: url('./../../../../assets/puppy.jpg');
 }
 
 .footer p {
