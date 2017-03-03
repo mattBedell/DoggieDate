@@ -5,7 +5,7 @@ class GlobalProfiles extends Component {
   render() {
     return (
       <div className='globalprofiles'>
-        <img alt='pic' />
+        <img src='' alt='pic' />
       </div>
     );
   }

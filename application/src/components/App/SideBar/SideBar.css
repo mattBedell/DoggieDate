@@ -1,8 +1,6 @@
 .sidebar {
-  height: 75vh;
+  height: 80vh;
   width: 20%;
-  box-sizing: border-box;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -10,4 +8,5 @@
   align-items: center;
   margin-right: 1.66%;
   overflow: scroll;
+  background-color: white;
 }
