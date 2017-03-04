@@ -5,6 +5,10 @@ const router = require('express').Router();
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const bodyParser = require('body-parser');
+require('dotenv').config();
+
+const loginRoute = require('./routes/login.js');
 
 const isDev = process.env.NODE_ENV ? false : true;
 const config = require(path.join(__dirname, '/webpack.config.js'));
@@ -12,6 +16,10 @@ const config = require(path.join(__dirname, '/webpack.config.js'));
 
 
 const compiler = webpack(config);
+
+app.use(bodyParser.json());
+
+app.use('/login', loginRoute);
 
 if(isDev) {
   app.use(require("webpack-dev-middleware")(compiler, {
