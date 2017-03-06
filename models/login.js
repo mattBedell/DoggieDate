@@ -5,10 +5,10 @@ function createUser(req, res, next) {
 
   db.one({
     name: 'create user',
-    text: `INSERT INTO members(first, last, username, password, salt, zip) VALUES(
-            $1, $2, $3, $4, $5, $6)
+    text: `INSERT INTO members(first, last, username, password, email, salt, zip) VALUES(
+            $1, $2, $3, $4, $5, $6, $7)
           RETURNING first, last, username, zip`,
-    values: [req.body.userData.first, req.body.userData.last, req.body.userData.username, req.body.userData.password, req.body.userData.salt, req.body.userData.zip]
+    values: [req.body.first, req.body.last, req.body.username, req.body.password, req.body.email, req.body.salt, req.body.zip]
   })
   .then((userData) => {
     res.userData = userData;
