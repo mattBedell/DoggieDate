@@ -2,14 +2,14 @@ BEGIN;
 
 TRUNCATE members, dogs, d_attrs, dog_attr_refs RESTART IDENTITY CASCADE;
 
-INSERT INTO members(first, last, username, password, email, salt, zip) VALUES
-('Matt', 'Bedell', 'mBedell', 'hash12345', 'matt@bedell.co', 'efcpoerevepmvepioet', '07030'),
-('Aaron', 'Conklin', 'aConklin', 'hash12345', 'conklin.aaron@gmail.com', 'wvopkropekpkttebt', '10010');
+INSERT INTO members(first, last, username, password, email, salt, zip, pictures) VALUES
+('Matt', 'Bedell', 'mBedell', 'hash12345', 'matt@bedell.co', 'efcpoerevepmvepioet', '07030', null),
+('Aaron', 'Conklin', 'aConklin', 'hash12345', 'conklin.aaron@gmail.com', 'wvopkropekpkttebt', '10010', null);
 
-INSERT INTO dogs (member_id, name, age, weight) VALUES
-(1, 'Tucker', 16, 20),
-(1, 'Luigi', 10, 10),
-(2, 'Frenchy', 1, 10);
+INSERT INTO dogs (member_id, name, age, weight, pictures) VALUES
+(1, 'Tucker', 16, 20, null),
+(1, 'Luigi', 10, 10, null),
+(2, 'Frenchy', 1, 10, null);
 
 INSERT INTO d_attrs (attribute, attr_catagory) VALUES
 ('chase', 'activities'),

@@ -10,6 +10,26 @@ class Global extends Component {
         <GlobalProfiles />
         <GlobalProfiles />
         <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
+        <GlobalProfiles />
       </div>
     );
   }

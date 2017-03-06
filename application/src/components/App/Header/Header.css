@@ -1,24 +1,33 @@
 .header {
   height: 10vh;
-  width: 96.25%;
+  width: 98%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.75% 0 2%;
-  box-shadow: 0 0 1em black;
+  padding: 0 0% 0 2%;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 .2em lightgrey;
 }
 
-.header input {
+#search {
   height: 30%;
   width: 20%;
   margin: 2% 0 0 0;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgrey;
+  background-color: transparent;
+}
+
+#search:focus {
+  outline: none;
+  box-shadow: 0 4px 2px -4px lightgrey;
 }
 
 #logo {
   height: 10vh;
+  margin: 0 0 0 1.5%;
 }
 
 .nav {
@@ -35,11 +44,109 @@
 }
 
 .icon {
-  height: 5vh;
-  margin: 0 4% 0 0;
+  height: 100%;
 }
 
 .icon:hover {
-  height: 5.5vh;
   cursor: pointer;
 }
+
+.nav div {
+  height: 5vh;
+  margin: 0 6% 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#global-icon:hover #global-name {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+#nearby-icon:hover #nearby-name {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+#matches-icon:hover #matches-name {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+#chats-icon:hover #chats-name {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+#profile-icon:hover #profile-name {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+#global-name {
+  height: 2vh;
+  width: 3%;
+  position: absolute;
+  top: 7.5vh;
+  transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+#nearby-name {
+  height: 2vh;
+  width: 3%;
+  position: absolute;
+  top: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+#matches-name {
+  height: 2vh;
+  width: 3%;
+  position: absolute;
+  top: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+#chats-name {
+  height: 2vh;
+  width: 3%;
+  position: absolute;
+  top: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+#profile-name {
+  height: 2vh;
+  width: 3%;
+  position: absolute;
+  top: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .5s;
+}
+
+.nav p {
+  font-size: 9px;
+}
+
+

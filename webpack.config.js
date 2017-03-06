@@ -37,7 +37,7 @@ const config = {
             })
       },
       {
-        test: /\.(jpg|jpeg|png)$/,
+        test: /\.(jpg|jpeg|png|svg)$/,
         include: APP_DIR,
         use: 'file-loader?name=[name].[ext]&publicPathh=assets/'
       }

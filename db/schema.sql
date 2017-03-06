@@ -8,7 +8,8 @@ CREATE TABLE members (
   password VARCHAR NOT NULL,
   email VARCHAR UNIQUE NOT NULL,
   salt VARCHAR NOT NULL,
-  zip CHAR(5) NOT NULL
+  zip CHAR(5) NOT NULL,
+  picture VARCHAR
 );
 
 CREATE TABLE requests (
@@ -36,7 +37,8 @@ CREATE TABLE dogs (
   member_id INT REFERENCES members (id) ON DELETE CASCADE,
   name VARCHAR(50) NOT NULL,
   age INT NOT NULL,
-  weight INT NOT NULL
+  weight INT NOT NULL,
+  picture VARCHAR
 );
 
 CREATE TABLE d_attrs (
