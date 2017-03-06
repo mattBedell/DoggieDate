@@ -2,9 +2,9 @@ BEGIN;
 
 TRUNCATE members, dogs, d_attrs, dog_attr_refs RESTART IDENTITY CASCADE;
 
-INSERT INTO members(first, last, username, password, zip) VALUES
-('Matt', 'Bedell', 'mBedell', 'hash12345', '07030'),
-('Aaron', 'Conklin', 'aConklin', 'hash12345', '10010');
+INSERT INTO members(first, last, username, password, salt, zip) VALUES
+('Matt', 'Bedell', 'mBedell', 'hash12345', 'efcpoerevepmvepioet', '07030'),
+('Aaron', 'Conklin', 'aConklin', 'hash12345', 'wvopkropekpkttebt', '10010');
 
 INSERT INTO dogs (member_id, name, age, weight) VALUES
 (1, 'Tucker', 16, 20),

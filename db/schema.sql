@@ -6,7 +6,7 @@ CREATE TABLE members (
   last VARCHAR(20) NOT NULL,
   username VARCHAR(50) NOT NULL,
   password VARCHAR NOT NULL,
-  salt TIMESTAMP NOT NULL DEFAULT NOW(),
+  salt VARCHAR NOT NULL,
   zip CHAR(5) NOT NULL
 );
 
