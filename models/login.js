@@ -2,6 +2,7 @@ const db = require('./../lib/dbConnect');
 const bcrypt = require('bcrypt');
 
 function createUser(req, res, next) {
+
   db.one({
     name: 'create user',
     text: `INSERT INTO members(first, last, username, password, salt, zip) VALUES(
@@ -18,6 +19,29 @@ function createUser(req, res, next) {
     next(err);
   })
 }
+
+function checkUser(req, res, next) {
+  const askUser = req.body.username;
+  const askEmail = req.body.email;
+
+  db.one({
+    name: 'check user',
+    text: `SELECT EXISTS(SELECT 1 FROM members WHERE username = $1)
+              AS isUser,
+            EXISTS(SELECT 1 FROM members WHERE email = $2)
+              AS isEmail`,
+    values: [req.body.username, req.body.email]
+  }).then((checkUser) => {
+    res.json(checkUser);
+  })
+  .catch((err) => {
+    console.log(`Error: login  checkUser: ${err}`);
+    next(err);
+  })
+}
+
+
 module.exports = {
-  createUser
+  createUser,
+  checkUser
 }

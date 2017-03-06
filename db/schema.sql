@@ -6,8 +6,10 @@ CREATE TABLE members (
   last VARCHAR(20) NOT NULL,
   username VARCHAR(50) NOT NULL,
   password VARCHAR NOT NULL,
+  email VARCHAR NOT NULL,
   salt VARCHAR NOT NULL,
-  zip CHAR(5) NOT NULL
+  zip CHAR(5) NOT NULL,
+  UNIQUE (username, email)
 );
 
 CREATE TABLE requests (
