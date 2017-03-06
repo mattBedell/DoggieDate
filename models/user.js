@@ -55,8 +55,8 @@ function getDogAttributes(req, res, next) {
   });
   db.any({
     name: 'get dog attributes',
-    text:  `SELECT * FROM d_attrs INNER JOIN dog_attr_refs ON dog_attr_refs.attr_id = d_attrs.id WHERE dog_attr_refs.dog_id = 1 OR dog_attr_refs.dog_id = 2 OR dog_attr_refs.dog_id = 0 OR dog_attr_refs.dog_id = 0 OR dog_attr_refs.dog_id = 0`,
-    values: [dogAttrs[0], dogAttrs[1], dogAttrs[2], dogAttrs[3], dogAttrs[4]]
+    text:  `SELECT * FROM d_attrs INNER JOIN dog_attr_refs ON dog_attr_refs.attr_id = d_attrs.id WHERE dog_attr_refs.dog_id = $1 OR dog_attr_refs.dog_id = $2`,
+    values: [dogAttrs[0], dogAttrs[1]]
   })
   .then((dogAttrs) => {
     res.dogAttrs = dogAttrs;
