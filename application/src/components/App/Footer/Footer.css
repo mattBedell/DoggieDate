@@ -3,6 +3,7 @@
   width: 100%;
   background-color: white;
   text-align: left;
+  box-shadow: 0 0 .2em lightgrey;
 }
 
 .footer p {

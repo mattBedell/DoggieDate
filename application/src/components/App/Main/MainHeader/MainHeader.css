@@ -2,7 +2,7 @@
   height: 5%;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgrey;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

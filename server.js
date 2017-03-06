@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const loginRoute = require('./routes/login.js');
+const usersRoute = require('./routes/users.js');
 
 const isDev = process.env.NODE_ENV ? false : true;
 const config = require(path.join(__dirname, '/webpack.config.js'));
@@ -20,6 +21,7 @@ const compiler = webpack(config);
 app.use(bodyParser.json());
 
 app.use('/login', loginRoute);
+app.use('/users', usersRoute);
 
 if(isDev) {
   app.use(require("webpack-dev-middleware")(compiler, {
