@@ -49,23 +49,24 @@ function getDogs(req, res, next) {
 }
 
 function getDogAttributes(req, res, next) {
-  const dogAttrs = [];
-  res.dogData.forEach(function(dog) {
-    dogAttrs.push(dog.id);
-  });
-  db.any({
-    name: 'get dog attributes',
-    text:  `SELECT * FROM d_attrs INNER JOIN dog_attr_refs ON dog_attr_refs.attr_id = d_attrs.id WHERE dog_attr_refs.dog_id = 1 OR dog_attr_refs.dog_id = 2 OR dog_attr_refs.dog_id = 0 OR dog_attr_refs.dog_id = 0 OR dog_attr_refs.dog_id = 0`,
-    values: [dogAttrs[0], dogAttrs[1], dogAttrs[2], dogAttrs[3], dogAttrs[4]]
-  })
-  .then((dogAttrs) => {
-    res.dogAttrs = dogAttrs;
-    next()
-  })
-  .catch((err) => {
-    console.log(`Error: user getDogAttributes: ${err}`);
-    next(err);
-  })
+  // ADD ERROR HANDLING HERE <-------------------------------
+  function getDatabasePromises(dog) {
+    return new Promise(resolve => {
+      return db.any({
+        name: 'get dog attributes',
+        text: `SELECT * FROM d_attrs INNER JOIN dog_attr_refs ON dog_attr_refs.attr_id = d_attrs.id WHERE dog_attr_refs.dog_id = $1`,
+        values: [dog.id]
+      }).then((data) => {
+        dog.attrs = data;
+        resolve(data)
+      })
+    })
+  }
+  const dogPromiseArr = res.dogData.map(getDatabasePromises);
+
+  const dogAttrs = Promise.all(dogPromiseArr);
+
+  dogAttrs.then(() => next());
 }
 
 module.exports = {
