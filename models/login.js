@@ -12,12 +12,8 @@ function createUser(req, res, next) {
     values: [req.body.first, req.body.last, req.body.username, req.body.password, req.body.email, req.body.salt, req.body.zip]
   })
   .then((userData) => {
-
-    let token = jwt.sign({
-      data: {user: userData.username}
-    }, process.env.TOKEN_SECRET, { expiresIn: '10s' });
-    console.log(token);
-    next()
+    res.userData = userData;
+    next();
   })
   .catch((err) => {
     console.log(`Error: login createUser: ${err}`);
