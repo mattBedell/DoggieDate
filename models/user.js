@@ -70,9 +70,23 @@ function getDogAttributes(req, res, next) {
   dogAttrs.then(() => next());
 }
 
+function prepareResponse(req, res, next) {
+  const userData = res.userData;
+  const dogData = res.dogData;
+
+  const resObj = {
+    user_data: userData,
+    dog_data: dogData
+  }
+
+  res.rows = resObj;
+  next();
+}
+
 module.exports = {
   getMyInfo,
   getDogs,
   getDogAttributes,
+  prepareResponse,
   getGlobalUsers
 }
