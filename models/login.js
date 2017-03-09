@@ -3,16 +3,16 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 function createUser(req, res, next) {
-
+  const { first, last, username, email, zip } = req.body;
   db.one({
     name: 'create user',
-    text: `INSERT INTO members(first, last, username, password, email, salt, zip) VALUES(
-            $1, $2, $3, $4, $5, $6, $7)
+    text: `INSERT INTO members(first, last, username, password, email, zip) VALUES(
+            $1, $2, $3, $4, $5, $6)
           RETURNING username`,
-    values: [req.body.first, req.body.last, req.body.username, req.body.password, req.body.email, req.body.salt, req.body.zip]
+    values: [first, last, username, res.passwordHash, email, zip]
   })
   .then((userData) => {
-    res.userData = userData;
+    res.username = userData;
     next();
   })
   .catch((err) => {
@@ -22,8 +22,7 @@ function createUser(req, res, next) {
 }
 
 function checkUser(req, res, next) {
-  const askUser = req.body.username;
-  const askEmail = req.body.email;
+  const  { username, email } = req.body;
 
   db.one({
     name: 'check user',
@@ -31,9 +30,10 @@ function checkUser(req, res, next) {
               AS isUser,
             EXISTS(SELECT 1 FROM members WHERE email = $2)
               AS isEmail`,
-    values: [req.body.username, req.body.email]
+    values: [username, email]
   }).then((checkUser) => {
-    res.json(checkUser);
+    res.checkUser = checkUser;
+    next()
   })
   .catch((err) => {
     console.log(`Error: login  checkUser: ${err}`);
