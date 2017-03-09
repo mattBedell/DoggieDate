@@ -44,4 +44,5 @@ Social Media Presence
 - [ ] REACT DROPZONE
 - [ ] AWS
 - [ ] ZipCodeAPI
+- [ ] REACT REDUX
 
