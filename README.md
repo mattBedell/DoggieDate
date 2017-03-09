@@ -24,7 +24,7 @@ Supplemental technologies include: React Dropzone, webpack, AWS, JSON Web Token,
 
 ## Wireframe
 
-![wireframe]('./application/assets/wireframe.png')
+![wireframe](./application/assets/wireframe.png)
 
 ## Future Goals
 
