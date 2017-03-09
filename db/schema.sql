@@ -7,7 +7,6 @@ CREATE TABLE members (
   username VARCHAR(50) UNIQUE NOT NULL ,
   password VARCHAR NOT NULL,
   email VARCHAR UNIQUE NOT NULL,
-  salt VARCHAR NOT NULL,
   zip CHAR(5) NOT NULL,
   picture VARCHAR
 );
