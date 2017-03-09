@@ -4,7 +4,7 @@ Matt Bedell & Aaron Conklin
 ## Concept
 DoggieDate is a full stack web application for dog owners who are looking to meet other dog owners for dog playdates, people dates, meetups/events, or increase their dog's visibility.
 
-![PlayDate](https://68.media.tumblr.com/tumblr_mdhzryvxMW1rgkou7o1_500.gif)
+![PlayDate](http://media.tumblr.com/db07bc34a605010aab9d78f0ff1f59e1/tumblr_inline_mlzrcfJPu31qz4rgp.gif)
 
 ## User Story
 
