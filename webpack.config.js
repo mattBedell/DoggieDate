@@ -5,14 +5,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, 'application');
-const APP_ENTRY = path.resolve(__dirname, 'application/src/client/index.html')
+const APP_ENTRY = path.resolve(__dirname, 'application/src/index.jsx')
 const BUILD_DIR = path.resolve(__dirname, 'application/src/client/public');
 
 const isDev = process.env.NODE_ENV ? false : true;
 
 const config = {
     entry:    [
-    `${APP_DIR}/src/client/app/index.jsx`
+    APP_ENTRY
   ],
   output: {
     path: BUILD_DIR,

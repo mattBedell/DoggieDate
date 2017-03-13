@@ -14,5 +14,10 @@ router.route('/create')
 router.route('/checkToken')
   .post(auth.validateToken, tempErrorHandler)
 
+// TEMP GET TOKEN FOR TESTING PUPROSES
+router.route('/getToken/:username')
+  .get((req, res, next) => { req.body.username = req.params.username; next()}, auth.generateToken, (req, res, next) => { res.send(res.token)})
+
+
 
 module.exports = router;
