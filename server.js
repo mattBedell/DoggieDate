@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
+const logger = require('morgan');
 require('dotenv').config();
 
 const loginRoute = require('./routes/login.js');
@@ -24,6 +25,7 @@ app.use('/login', loginRoute);
 app.use('/users', usersRoute);
 
 if(isDev) {
+  app.use(logger('dev'))
   app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: config.output.publicPath
   }));
