@@ -9,7 +9,7 @@ const { getChats } = require('./../models/userData.js');
 
 // GET CHATS ROUTE FOR TESTING PURPOSES
 router.route('/getChats')
-  .get(auth.validateToken, getChats, (req, res, next) => { res.send(res.json(res.chats))})
+  .get(auth.validateToken, getChats, (req, res, next) => { res.json(res.chats)})
 
 router.route('/')
   .get(user.getGlobalUsers, (req, res, next) => { res.send(res.userData) })

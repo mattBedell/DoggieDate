@@ -11,7 +11,8 @@ const BUILD_DIR = path.resolve(__dirname, 'application/src/client/public');
 const isDev = process.env.NODE_ENV ? false : true;
 
 const config = {
-    entry:    [
+  devtool: 'source-map',
+  entry:    [
     APP_ENTRY
   ],
   output: {
