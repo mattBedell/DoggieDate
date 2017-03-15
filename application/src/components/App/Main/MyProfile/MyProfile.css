@@ -1,0 +1,10 @@
+.myprofile {
+  height: 95%;
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}

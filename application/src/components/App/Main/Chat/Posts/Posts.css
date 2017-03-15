@@ -1,0 +1,21 @@
+.posts {
+  width: 100%;
+  padding: 2% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.posts img {
+  height: 50px;
+  width: 7%;
+  box-sizing: border-box;
+  border: 1px solid grey;
+}
+
+.post-text {
+  width: 85%;
+  background-color: lightgrey;
+  padding: 2%;
+}

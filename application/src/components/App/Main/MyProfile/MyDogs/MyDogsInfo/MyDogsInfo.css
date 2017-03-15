@@ -1,0 +1,40 @@
+.mydogsinfo {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.mydogsinfo img {
+  height: 350px;
+  width: 45%;
+  box-sizing: border-box;
+  border: 1px solid lightgrey;
+}
+
+.mydogsinfo-text {
+  height: 350px;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mydogsinfo-text-box {
+  height: 50px;
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mydogsinfo-text-box p {
+  font-size: 20px;
+  margin: 0 2% 0 0;
+}
