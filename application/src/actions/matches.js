@@ -1,3 +1,5 @@
+import auth from './auth.js'
+
 function requestMatches() {
   return {
     type: 'REQUEST_MATCHES',
@@ -9,7 +11,7 @@ function recieveMatches(matches) {
   return {
     type: 'RECIEVE_MATCHES',
     date: new Date(),
-    matches
+    matches: matches
   }
 };
 
@@ -23,7 +25,7 @@ function fetchMatches(token) {
 
   return (dispatch, getState) => {
     dispatch(requestMatches())
-    return fetch('/users/getChats', {
+    return fetch('/users/getMatches', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,11 +33,11 @@ function fetchMatches(token) {
       }
     })
     .then((r) => r.json())
-    .then((matches) => {
-      dispatch(recieveMatches(matches))
+    .then((data) => {
+      auth(data, recieveMatches, dispatch)
     })
     .catch((err) => {
-      dispatch(errorMatches(err))
+      errorMatches(err)
     })
   }
 };
