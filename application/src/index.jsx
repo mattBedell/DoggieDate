@@ -21,7 +21,7 @@ const store = createStore(rootReducer,
 );
 
 // WILL GET TOKEN FROM LOCAL STORAGE
-store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk0NDE1MzYsImV4cCI6MTQ4OTUyNzkzNiwiaXNzIjoiRG9nZ2llIERhdGUifQ.EmdgY3tdRf_CJuD75Mr7KJ9YySAeb_b6wTXT9zefpG0'));
+store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk2MjM5MTAsImV4cCI6MTUyMTE4MTUxMCwiaXNzIjoiRG9nZ2llIERhdGUifQ.RJrURUg0Wh60mFU92xicIs8ps3KjXdtNlwa5JEzTyNY'));
 
 
 ReactDOM.render(
