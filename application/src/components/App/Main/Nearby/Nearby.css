@@ -1,0 +1,11 @@
+.nearby {
+  height: 95%;
+  width: 98%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 1% 0 1%;
+}
