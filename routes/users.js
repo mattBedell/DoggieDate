@@ -11,6 +11,10 @@ const { getMatches } = require('./../models/userData.js');
 router.route('/getMatches')
   .get(auth.validateToken, getMatches, (req, res, next) => { res.json(Object.assign(res.data, res.auth))})
 
+// ROUTE TO SEED DATABASE OF FAKE USERS
+// router.route('/makeUsers')
+//   .get()
+
 router.route('/')
   .get(user.getGlobalUsers, (req, res, next) => { res.send(res.userData) })
 

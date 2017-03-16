@@ -10,8 +10,9 @@ INSERT INTO members(first, last, username, password, email, zip, picture) VALUES
 
 INSERT INTO matches(member, match) VALUES
 (1, 2),
-(1, 3),
-(1, 4);
+(4, 3),
+(4, 1),
+(2, 3);
 
 INSERT INTO dogs (member_id, name, age, weight, picture) VALUES
 (1, 'Tucker', 16, 20, null),
