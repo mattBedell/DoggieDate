@@ -2,6 +2,7 @@ const router = require('express').Router();
 const user = require('./../models/user.js');
 const auth = require('./../lib/auth.js');
 const { getMatches } = require('./../models/userData.js');
+const { seedDb } = require('./../models/makeUsers.js');
 
 
 // router.route('/:id')
@@ -10,6 +11,12 @@ const { getMatches } = require('./../models/userData.js');
 // GET CHATS ROUTE FOR TESTING PURPOSES
 router.route('/getMatches')
   .get(auth.validateToken, getMatches, (req, res, next) => { res.json(Object.assign(res.data, res.auth))})
+
+// ROUTE TO SEED DATABASE OF FAKE USERS
+// router.route('/makeUsers')
+//   .get()
+router.route('/seed/:numberOfSeeds')
+  .get(seedDb, (req, res, next) => { res.send('done...')})
 
 router.route('/')
   .get(user.getGlobalUsers, (req, res, next) => { res.send(res.userData) })
