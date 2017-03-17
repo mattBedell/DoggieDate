@@ -1,4 +1,4 @@
-.globalprofiles {
+.searchprofiles {
   height: 30%;
   width: 16.666%;
   display: flex;
@@ -6,13 +6,13 @@
   align-items: center;
 }
 
-.globalprofiles img {
+.searchprofiles img {
   height: 100%;
   width: 100%;
   text-align: center;
 }
 
-#global-member-link {
+#search-member-link {
   height: 85%;
   width: 85%;
 }

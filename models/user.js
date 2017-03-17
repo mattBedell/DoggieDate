@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 function getGlobalUsers(req, res, next) {
   db.any({
     name: 'get user',
-    text: `SELECT * FROM members WHERE picture != 'null'`
+    text: `SELECT first, last, username, zip, picture FROM members WHERE picture != 'null'`
   })
   .then((userData) => {
     res.userData = userData;

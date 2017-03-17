@@ -1,10 +1,10 @@
-.memberprofile {
+.notifications {
   height: 95%;
   width: 100%;
-  overflow: scroll;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  overflow: scroll;
 }
