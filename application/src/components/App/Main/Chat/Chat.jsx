@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Posts from './Posts/Posts.jsx';
+import MyPosts from './MyPosts/MyPosts.jsx';
 import styles from './Chat.css';
 
 class Chat extends Component {
@@ -8,17 +9,17 @@ class Chat extends Component {
       <div className='chat'>
         <div className="post-box">
             <Posts />
+            <MyPosts />
+            <Posts />
+            <MyPosts />
+            <Posts />
+            <MyPosts />
+            <Posts />
+            <MyPosts />
+            <MyPosts />
             <Posts />
             <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
-            <Posts />
+            <MyPosts />
             <Posts />
             <Posts />
         </div>
