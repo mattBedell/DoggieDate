@@ -23,6 +23,7 @@ const savePerson = (userInfo) => {
        $1, $2, $3, $4, $5, $6, $7) RETURNING members.id;`,
     values: [...Object.values(userInfo)]
   }).then((data) => data.id)
+  .catch((err) => console.log(err))
 }
 const makeDog = (member_id) => {
   return new Promise((resolve, reject) => {
@@ -47,6 +48,7 @@ const saveDog = (dogInfo) => {
             $1, $2, $3, $4, $5) RETURNING dogs.id;`,
     values: [...Object.values(dogInfo)]
   }).then((data) => data.id)
+  .catch((err) => console.log(err))
 }
 const saveAttrs = (dogId, attrId) => {
   return db.none({
