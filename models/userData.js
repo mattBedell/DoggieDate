@@ -1,6 +1,6 @@
 const db = require('./../lib/dbConnect.js');
 
-function getChats(req, res, next) {
+function getMatches(req, res, next) {
   const username = res.token.username;
   db.any({
     name: 'get user matches',
@@ -9,11 +9,13 @@ function getChats(req, res, next) {
               (SELECT id FROM members WHERE username = $1);`,
     values: [username]
   })
-  .then((chats) => {
-    res.chats = chats;
+  .then((matches) => {
+    res.data = {
+      data: matches
+    };
     next()
   })
 }
 module.exports = {
-  getChats
+  getMatches
 }

@@ -34,7 +34,7 @@ const store = createStore(rootReducer,
 );
 
 // WILL GET TOKEN FROM LOCAL STORAGE
-store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFDb25rbGluIiwiaWF0IjoxNDg5Njk0NjI1LCJleHAiOjE0ODk3ODEwMjUsImlzcyI6IkRvZ2dpZSBEYXRlIn0.Dt4Kta-g-JLcLfpZrVs3IV4kwmwHpgoOB5kgXpyXQX0'));
+
 
 
 ReactDOM.render(

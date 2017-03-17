@@ -1,8 +1,7 @@
-
 const matches = (state = {
   isFetching: false,
-  requestedAt: 'not requested',
-  updatedAt: 'not updated',
+  requestedAt: '',
+  updatedAt: '',
   matches: []
 }, action) => {
   switch(action.type) {
@@ -23,6 +22,19 @@ const matches = (state = {
         isFetching: false,
         updatedAt: 'not updated'
       })
+    case 'BAD_TOKEN':
+      return Object.assign({}, state, {
+        validationError: true,
+        errorFetchingMatches: true,
+        isFetching: false
+      })
+    case 'EXPIRED_TOKEN':
+     return Object.assign({}, state, {
+       validationError: true,
+       errorFetchingMatches: true,
+       isFetching: false
+     })
+
     default:
       return state;
   }
