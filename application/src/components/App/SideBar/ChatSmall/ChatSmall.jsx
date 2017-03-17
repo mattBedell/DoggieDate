@@ -6,10 +6,10 @@ import prof from "./../../../../../assets/DoggieDateApp.png";
 class ChatSmall extends Component {
   render() {
     return (
-      <Link to='/chat'><div className='chatsmall'>
-        <img src={prof} alt='pic' />
-        <p>Profile Name</p>
-      </div></Link>
+      <div className='chatsmall'>
+        <Link to='/member' id="chat-member-link"><img src={prof} alt='pic' /></Link>
+        <Link to='/chat' id="chat-link"><p>Profile Name</p></Link>
+      </div>
     );
   }
 }

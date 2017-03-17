@@ -26,8 +26,19 @@
 }
 
 #logo {
+  height: 8vh;
+}
+
+#home-link {
+  display: block;
   height: 10vh;
   margin: 0 0 0 1.5%;
+  display: flex;
+  align-items: center;
+}
+
+#home-link:hover {
+  cursor: pointer;
 }
 
 .nav {
@@ -149,7 +160,28 @@
   font-size: 9px;
 }
 
-.header a {
+.icon-links {
   margin: 0 6% 0 0;
 }
 
+#search-link {
+  display: block;
+  height: 70%;
+  width: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+  margin: 0 0 0 -13.5%;
+}
+
+.header button {
+  height: 3vh;
+  width: 100%;
+  line-height: 1vh;
+  border-style: none;
+  background-color: rgba(244, 40, 74, .8);
+  border-radius: .5em;
+  color: white;
+}

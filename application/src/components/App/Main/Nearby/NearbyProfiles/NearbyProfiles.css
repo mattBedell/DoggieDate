@@ -7,8 +7,12 @@
 }
 
 .nearbyprofiles img {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+#nearby-member-link {
   height: 85%;
   width: 85%;
-  text-align: center;
-  /*box-shadow: 0 0 .2em lightgrey;*/
 }

@@ -19,7 +19,9 @@ import Nearby from './components/App/Main/Nearby/Nearby.jsx';
 import Matches from './components/App/Main/Matches/Matches.jsx';
 import Chat from './components/App/Main/Chat/Chat.jsx';
 import MyProfile from './components/App/Main/MyProfile/MyProfile.jsx';
-// import MemberProfile from './components/App/Main/MemberProfile/MemberProfile.jsx';
+import MemberProfile from './components/App/Main/MemberProfile/MemberProfile.jsx';
+import Notifications from './components/App/Main/Notifications/Notifications.jsx';
+import SearchResults from './components/App/Main/SearchResults/SearchResults.jsx';
 
 if (module.hot) {
     module.hot.accept()
@@ -32,7 +34,7 @@ const store = createStore(rootReducer,
 );
 
 // WILL GET TOKEN FROM LOCAL STORAGE
-store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFDb25rbGluIiwiaWF0IjoxNDg5NjA2NDk2LCJleHAiOjE0ODk2OTI4OTYsImlzcyI6IkRvZ2dpZSBEYXRlIn0.WYUvLqMDRwJWtrlohQbjJmptQfWb4DhAjLdYFJB-Crs'));
+store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFDb25rbGluIiwiaWF0IjoxNDg5Njk0NjI1LCJleHAiOjE0ODk3ODEwMjUsImlzcyI6IkRvZ2dpZSBEYXRlIn0.Dt4Kta-g-JLcLfpZrVs3IV4kwmwHpgoOB5kgXpyXQX0'));
 
 
 ReactDOM.render(
@@ -46,6 +48,9 @@ ReactDOM.render(
           <Route path='/matches' component={Matches} />
           <Route path='/chat' component={Chat} />
           <Route path='/profile' component={MyProfile} />
+          <Route path='/member' component={MemberProfile} />
+          <Route path='/notifications' component={Notifications} />
+          <Route path="/search" component={SearchResults} />
         </Route>
       </Route>
     </Router>

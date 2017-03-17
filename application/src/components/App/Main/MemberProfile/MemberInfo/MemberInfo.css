@@ -1,0 +1,65 @@
+.memberinfo {
+  height: 300px;
+  width: 95%;
+  padding: 0 2.5%;
+  box-sizing: border-box;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-pic {
+  height: 80%;
+  width: 30%;
+  box-sizing: border-box;
+  border: 1px solid lightgrey;
+}
+
+.memberinfo-text {
+  height: 80%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.memberinfo-text-box {
+  height: 20%;
+  width: 90%;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.memberinfo-text-box p {
+  margin: 0 2% 0 0;
+}
+
+.match-box {
+  height: 95%;
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5%;
+}
+
+#match-button {
+  width: 100%;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+
+#match-button:hover {
+  cursor: pointer;
+}
+
+#match-button.matched {
+  background-color: pink;
+}
