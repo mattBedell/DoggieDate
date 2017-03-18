@@ -22,7 +22,7 @@ const compiler = webpack(config);
 app.use(bodyParser.json());
 
 app.use('/login', loginRoute);
-app.use('/users', usersRoute);
+app.use('/api/users', usersRoute);
 
 if(isDev) {
   app.use(logger('dev'))

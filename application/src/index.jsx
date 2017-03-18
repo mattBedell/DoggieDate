@@ -8,6 +8,7 @@ import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index.js';
 import { fetchMatches, fetchGlobalUsers } from './actions/index.js';
+import fetchMiddleware from './utils/getDataMiddleware.js'
 
 import App from './components/App/App.jsx';
 // import Home from './components/Home/Home.jsx';
@@ -31,12 +32,13 @@ if (module.hot) {
 const logger = createLogger();
 
 const store = createStore(rootReducer,
-    compose(applyMiddleware(thunk, logger))
+    compose(applyMiddleware(thunk, fetchMiddleware, logger))
 );
 
 
 // WILL GET TOKEN FROM LOCAL STORAGE
-store.dispatch(fetchGlobalUsers('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek'))
+localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek');
+//store.dispatch(fetchGlobalUsers(''))
 
 ReactDOM.render(
   <Provider store={store} >

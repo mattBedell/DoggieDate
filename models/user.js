@@ -7,7 +7,7 @@ function getGlobalUsers(req, res, next) {
     text: `SELECT first, last, username, zip, picture FROM members WHERE picture != 'null'`
   })
   .then((userData) => {
-    res.data = {data: userData};
+    res.data = userData;
     next()
   })
   .catch((err) => {
