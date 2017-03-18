@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index.js';
-import { fetchMatches } from './actions/index.js';
+import { fetchMatches, fetchGlobalUsers } from './actions/index.js';
 
 import App from './components/App/App.jsx';
 // import Home from './components/Home/Home.jsx';
@@ -23,6 +23,7 @@ import MemberProfile from './components/App/Main/MemberProfile/MemberProfile.jsx
 import Notifications from './components/App/Main/Notifications/Notifications.jsx';
 import SearchResults from './components/App/Main/SearchResults/SearchResults.jsx';
 
+
 if (module.hot) {
     module.hot.accept()
 }
@@ -33,9 +34,9 @@ const store = createStore(rootReducer,
     compose(applyMiddleware(thunk, logger))
 );
 
-// WILL GET TOKEN FROM LOCAL STORAGE
-store.dispatch(fetchMatches('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek'))
 
+// WILL GET TOKEN FROM LOCAL STORAGE
+store.dispatch(fetchGlobalUsers('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek'))
 
 ReactDOM.render(
   <Provider store={store} >

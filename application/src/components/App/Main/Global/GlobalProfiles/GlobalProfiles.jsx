@@ -6,7 +6,8 @@ class GlobalProfiles extends Component {
   render() {
     return (
       <div className='globalprofiles'>
-        <Link to="/member" id="global-member-link"><img src='' /></Link>
+        <Link to="/member" id="global-member-link"><img src={this.props.picture} /></Link>
+        <p className="globalusername">{this.props.username}</p>
       </div>
     );
   }

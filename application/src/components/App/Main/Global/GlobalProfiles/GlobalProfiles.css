@@ -1,13 +1,13 @@
 .globalprofiles {
-  height: 30%;
-  width: 16.666%;
+  height: 47.5%;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .globalprofiles img {
-  height: 100%;
   width: 100%;
   text-align: center;
 }
@@ -15,4 +15,16 @@
 #global-member-link {
   height: 85%;
   width: 85%;
+}
+
+.globalusername {
+  display: block;
+  height: 15px;
+  text-align: left;
+  position: absolute;
+  z-index: 1;
+  margin: 45% 0 0 0;
+  font-size: 15px;
+  font-weight: bolder;
+  color: rgb(35, 35, 35);
 }

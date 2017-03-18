@@ -19,6 +19,6 @@ router.route('/seed/:numberOfSeeds')
   .get(seedDb, (req, res, next) => { res.send('done...')})
 
 router.route('/')
-  .get(user.getGlobalUsers, (req, res, next) => { res.send(res.userData) })
+  .get(auth.validateToken, user.getGlobalUsers, (req, res, next) => { res.json(Object.assign(res.data, res.auth)) })
 
 module.exports = router;
