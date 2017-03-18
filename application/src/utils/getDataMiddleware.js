@@ -11,7 +11,7 @@ const callApi = (endpoint, config = {
     'Content-Type': 'application/json',
     'Authorization': retrieveLocalToken()
   }
-})  => {
+}) => {
 
   return fetch(`/api/${endpoint}`, config)
           .then((response) => response)
@@ -20,6 +20,8 @@ const callApi = (endpoint, config = {
 export default store => next => action => {
   const apiCall = action[CALL_API];
 
+  // ADD CHECK FOR ISFETCHING TO PREVENT RACE CONDITIONS HERE <-----------------------------
+
   // if the action object does not have an api call key then go to next middleware
   // and proceed as normal
   if(!apiCall) {
@@ -27,10 +29,10 @@ export default store => next => action => {
   }
 
   // get api call information from the action
-  const { endpoint, actionTypes} = apiCall;
-
+  const { endpoint, types} = apiCall;
+  console.log(action);
   // get action types to be used on fetch initiation/completion
-  const [request, success, failure] = actionTypes;
+  const [request, success, failure] = types;
 
   // generate action to be dispatched without API key and with correct type and data
   const makeDispatchAction = (data) => {
@@ -43,12 +45,12 @@ export default store => next => action => {
 
   // dispatch a request action with a request type
   next(makeDispatchAction({
-    type: request,
-    requestedAt: new Date()
+    type: request
   }))
 
   // do the fetch call
-  return callApi(endpoint).then((response) => {
+  return callApi(endpoint).then((r) => r.json())
+  .then((response) => {
     //dispatch an auth error action if the server failed the request auth
     if(response.authError) {
       return next(makeDispatchAction({
@@ -58,9 +60,8 @@ export default store => next => action => {
     }
     // dispatch a success action with requested data
     return next(makeDispatchAction({
-      response,
       type: success,
-      updatedAt: new Date()
+      data: response
     }))
   })
 }

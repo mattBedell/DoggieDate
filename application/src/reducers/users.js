@@ -1,20 +1,20 @@
-const fetchGlobalUsers = (state = {
+export const global_users = (state = {
   isFetching: false,
   requestedAt: '',
-  updatedAt: '',
+  updatedAt: 'no update',
   data: []
 }, action) => {
   switch(action.type) {
     case 'REQUEST_GLOBAL_USERS':
     return Object.assign({}, state, {
       isFetching: true,
-      requestedAt: action.date
+      requestedAt: new Date()
     })
-    case 'RECEIVE_GLOBAL_USERS':
+    case 'RECIEVE_GLOBAL_USERS':
     return Object.assign({}, state, {
-      isFetching: true,
-      requestedAt: action.date,
-      data: action.users
+      isFetching: false,
+      updatedAt: new Date(),
+      data: action.data
     })
     case 'ERROR_GLOBAL_USERS':
     return Object.assign({}, state, {
@@ -22,12 +22,8 @@ const fetchGlobalUsers = (state = {
       isFetching: false,
       updatedAt: 'not updated'
     })
-
+    //case 'AUTH_ERROR':
     default:
       return state;
   }
-};
-
-export {
-  fetchGlobalUsers
 };

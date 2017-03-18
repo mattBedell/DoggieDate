@@ -33,7 +33,7 @@ class Global extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    profiles: state.fetchGlobalUsers.data
+    profiles: state.global_users.data
   }
 }
 
