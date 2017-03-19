@@ -3,7 +3,7 @@ BEGIN;
 TRUNCATE members, dogs, d_attrs, dog_attr_refs RESTART IDENTITY CASCADE;
 
 INSERT INTO members(first, last, username, password, email, zip, picture) VALUES
-('Matt', 'Bedell', 'matt', '12345', 'matt@bedell.co', '07030', 'http://hubmesh.com/uploads/gossip/2015/09/21/comedian-eric-andre-answers-all-your-questions-about-dating-and-girlfriends.jpg'),
+('Matt', 'Bedell', 'matt', '12345', 'matt@bedell.co', '07030', 'http://assets.fratmusic.com.s3-us-west-2.amazonaws.com/cover/1429651747-Prison_Mike.jpg'),
 ('Aaron', 'Conklin', 'aConklin', 'hash12345', 'conklin.aaron@gmail.com', '10010', null),
 ('Shmaaron', 'Shmonklin', 'eyyyyyy', 'efjijefiof', 'eoieioiv.aaron@gmail.com', '10010', null),
 ('Aa', 'Covdjoidin', 'aConkvdolin', 'hashooo12345', 'conklijicin.aaron@gmail.com', '10010', null);

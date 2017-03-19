@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 app.use('/login', loginRoute);
 app.use('/api/users', usersRoute);
 
+
 if(isDev) {
   app.use(logger('dev'))
   app.use(require("webpack-dev-middleware")(compiler, {
@@ -32,11 +33,7 @@ if(isDev) {
 
   app.use(require("webpack-hot-middleware")(compiler));
 
-  app.get('', (req, res, next) => {
-    res.sendFile('/index.html')
-  })
 }
-
 
 
 
