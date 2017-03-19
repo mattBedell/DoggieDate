@@ -84,6 +84,7 @@ const makeUserAndDog = () => {
   })
 }
 const generateSeeds = (numberOfSeeds) => {
+  // Array(query) Array fill << do this later
   const seedPromiseArr = [];
 
   for(let i = 0; i < numberOfSeeds; i++) {
