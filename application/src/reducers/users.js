@@ -1,4 +1,4 @@
-export const global_users = (state = {
+const global_users = (state = {
   isFetching: false,
   requestedAt: '',
   updatedAt: 'no update',
@@ -22,8 +22,13 @@ export const global_users = (state = {
       isFetching: false,
       updatedAt: 'not updated'
     })
-    //case 'AUTH_ERROR':
+    case 'AUTH_ERROR':
     default:
       return state;
   }
 };
+export default global_users;
+
+export const getGlobalUsers = (state) => {
+  return state.global_users.data
+}

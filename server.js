@@ -5,6 +5,7 @@ const router = require('express').Router();
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const history = require('connect-history-api-fallback');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 require('dotenv').config();
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use('/login', loginRoute);
 app.use('/api/users', usersRoute);
 
+app.use(history())
 if(isDev) {
   app.use(logger('dev'))
   app.use(require("webpack-dev-middleware")(compiler, {
@@ -32,11 +34,7 @@ if(isDev) {
 
   app.use(require("webpack-hot-middleware")(compiler));
 
-  app.get('', (req, res, next) => {
-    res.sendFile('/index.html')
-  })
 }
-
 
 
 

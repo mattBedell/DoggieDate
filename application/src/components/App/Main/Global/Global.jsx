@@ -3,28 +3,31 @@ import GlobalProfiles from "./GlobalProfiles/GlobalProfiles.jsx";
 import styles from './Global.css';
 import { connect } from 'react-redux';
 import { fetchGlobalUsers } from './../../../../actions/index.js';
+import { getGlobalUsers } from './../../../../reducers/index.js';
 
 
 class Global extends Component {
 
   componentWillMount() {
-    fetchGlobalUsers('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek')
+    this.props.fetchGlobalUsers()
   }
 
   displayProfiles() {
     return (this.props.profiles.map((profile) => {
         return (
         <GlobalProfiles
-            username={profile.username}
-            picture={profile.picture}
-         />
+          key={`gProfile${profile.username}`}
+          username={profile.username}
+          picture={profile.picture}
+        />
          )
     }))
   }
 
   render() {
     return (
-      <div className='global'>
+      <div
+        className='global'>
         {this.displayProfiles()}
       </div>
     );
@@ -33,8 +36,13 @@ class Global extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    profiles: state.global_users.data
+    profiles: getGlobalUsers(state)
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchGlobalUsers: () => dispatch(fetchGlobalUsers())
   }
 }
 
-export default connect(mapStateToProps)(Global);
+export default connect(mapStateToProps, mapDispatchToProps)(Global);

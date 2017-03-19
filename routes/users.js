@@ -4,7 +4,12 @@ const auth = require('./../lib/auth.js');
 const { getMatches } = require('./../models/userData.js');
 const { seedDb } = require('./../models/makeUsers.js');
 
-
+// Simulate delay of response for testing front end
+const simulateNetworkDelay = (req, res, next) => {
+  setTimeout(() => {
+    next()
+  }, 2000)
+}
 // router.route('/:id')
 //   .get(user.getMyInfo, user.getDogs, user.getDogAttributes, user.prepareResponse, (req, res, next) => {res.send(res.rows) })
 
@@ -19,6 +24,6 @@ router.route('/seed/:numberOfSeeds')
   .get(seedDb, (req, res, next) => { res.send('done...')})
 
 router.route('/')
-  .get(auth.validateToken, user.getGlobalUsers, (req, res, next) => res.json(res.data))
+  .get(simulateNetworkDelay, auth.validateToken, user.getGlobalUsers, (req, res, next) => res.json(res.data))
 
 module.exports = router;
