@@ -8,7 +8,7 @@ import { fetchGlobalUsers } from './../../../../actions/index.js';
 
 class Global extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchGlobalUsers()
   }
 
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGlobalUsers: () => dispatch(fetchGlobalUsers())
+    fetchGlobalUsers: () => dispatch(fetchGlobalUsers('users'))
   }
 }
 
