@@ -27,6 +27,7 @@
       0: {user},
       1: {user},
       2: {user},
+      allIds: [0, 1, 2],
     },
     dogs: {
       0: {dog},
@@ -37,6 +38,7 @@
       0: {attribute},
       1: {attribute},
       2: {attribute},
+      allIds: [0, 1, 2],
     },
   },
   users: {

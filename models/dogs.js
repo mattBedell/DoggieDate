@@ -26,7 +26,6 @@ function getDogByID(req, res, next) {
 function dogList(req, res, next) {
   let { list } = req.body;
   list = JSON.parse(list);
-  console.log(typeof(list));
   db.task((t) => t.batch(list.map((id) => {
     return db.any(`SELECT dogs.*, dog_attr_refs.attr_id FROM dogs
                       RIGHT JOIN dog_attr_refs
