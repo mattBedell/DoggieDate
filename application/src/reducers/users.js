@@ -1,4 +1,35 @@
-const global_users = (state = {
+import { combineReducers } from 'redux';
+
+
+const getUserIds = (data) =>
+  data.map((user) => user.id)
+
+const getUserObject = (data) => {
+  const userObject = {};
+  data.forEach((user) => {
+    userObject[user.id] = user
+  })
+  return userObject;
+}
+
+const user_ids = (state = [], action) => {
+  switch(action.type) {
+    case 'RECIEVE_GLOBAL_USERS':
+      return getUserIds(action.data)
+
+    default:
+      return state
+  }
+}
+
+const data = (state = {}, action) => {
+  switch(action.type) {
+    case 'RECIEVE_GLOBAL_USERS':
+      let users = Object.assign({}, )
+  }
+}
+
+const users = (state = {
   isFetching: false,
   requestedAt: '',
   updatedAt: 'no update',
@@ -14,7 +45,7 @@ const global_users = (state = {
     return Object.assign({}, state, {
       isFetching: false,
       updatedAt: new Date(),
-      data: action.data
+      data: getUserObject(action.data)
     })
     case 'ERROR_GLOBAL_USERS':
     return Object.assign({}, state, {
@@ -27,8 +58,9 @@ const global_users = (state = {
       return state;
   }
 };
-export default global_users;
+export default combineReducers({users, user_ids});
 
-export const getGlobalUsers = (state) => {
-  return state.global_users.data
-}
+export const getGlobalUsers = (state) =>
+  state.user_ids.map((userId) => {
+    return state.users.data[userId];
+  })

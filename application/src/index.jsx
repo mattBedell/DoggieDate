@@ -38,7 +38,7 @@ const store = createStore(rootReducer,
 );
 
 
-localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0ODk3ODI0NjQsImV4cCI6MTUyMTM0MDA2NCwiaXNzIjoiRG9nZ2llIERhdGUifQ.3qa9K16KdFBPl_L2rzfyQIYXL_n3T_FLUV3AeHTgEek');
+localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHQiLCJpYXQiOjE0OTAwMzE2ODUsImV4cCI6MTUyMTU4OTI4NSwiaXNzIjoiRG9nZ2llIERhdGUifQ.K6OVH0Y2cEbLqDNLDtAuhxUhuaJ5ih_zQLYSw3O_IA0');
 
 ReactDOM.render(
   <Provider store={store} >
@@ -50,7 +50,7 @@ ReactDOM.render(
           <Route path='/nearby' component={Nearby} />
           <Route path='/matches' component={Matches} />
           <Route path='/chat' component={Chat} />
-          <Route path='/profile' component={MyProfile} />
+          <Route path='/profile/(:username)' component={MyProfile} />
           <Route path='/member' component={MemberProfile} />
           <Route path='/notifications' component={Notifications} />
           <Route path="/search" component={SearchResults} />
