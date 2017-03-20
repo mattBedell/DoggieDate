@@ -9,7 +9,7 @@ export function fetchGlobalUsers() {
     [CALL_API]: {
       types: [REQUEST_GLOBAL_USERS, RECIEVE_GLOBAL_USERS, ERROR_GLOBAL_USERS],
       endpoint: 'users/',
-      stateSlice: 'global_users'
+      stateSlice: 'users'
     }
   }
 }

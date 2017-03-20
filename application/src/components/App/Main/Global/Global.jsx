@@ -3,7 +3,7 @@ import GlobalProfiles from "./GlobalProfiles/GlobalProfiles.jsx";
 import styles from './Global.css';
 import { connect } from 'react-redux';
 import { fetchGlobalUsers } from './../../../../actions/index.js';
-import { getGlobalUsers } from './../../../../reducers/index.js';
+ import { getGlobalUsers } from './../../../../reducers/index.js';
 
 
 class Global extends Component {
@@ -13,7 +13,7 @@ class Global extends Component {
   }
 
   displayProfiles() {
-    return (this.props.profiles.map((profile) => {
+    return (this.props.users.map((profile) => {
         return (
         <GlobalProfiles
           key={`gProfile${profile.username}`}
@@ -36,7 +36,7 @@ class Global extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    profiles: getGlobalUsers(state)
+    users: getGlobalUsers(state)
   }
 }
 const mapDispatchToProps = (dispatch) => {
