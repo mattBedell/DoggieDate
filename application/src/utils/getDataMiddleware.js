@@ -29,9 +29,9 @@ export default store => next => action => {
   // ADD CHECK FOR ISFETCHING TO PREVENT RACE CONDITIONS HERE <-----------------------------
   // console.log(state);
   // console.log(action[CALL_API].stateSlice);
-  // if(state[action[CALL_API].stateSlice].isFetching) {
-  //   return
-  // }
+  if(state[action[CALL_API].stateSlice].isFetching) {
+    return
+  }
 
   // get api call information from the action
   const { endpoint, types} = apiCall;

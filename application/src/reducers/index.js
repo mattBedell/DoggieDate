@@ -1,10 +1,17 @@
 import { combineReducers } from 'redux';
-import usersReducer, * as users from './users.js'
+import * as users from './users.js'
 
 // This importing and exporting is for when things start to scale up
 
-export default usersReducer
+const entities = combineReducers({
+  users: users.users
+})
 
-export const getGlobalUsers = (state) => {
-  return users.getGlobalUsers(state);
+export default combineReducers({
+  users: users.user_api_status,
+  entities
+})
+
+export const getUsers = (state) => {
+  return users.getUsers(state);
 }

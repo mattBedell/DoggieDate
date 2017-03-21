@@ -3,13 +3,13 @@ import GlobalProfiles from "./GlobalProfiles/GlobalProfiles.jsx";
 import styles from './Global.css';
 import { connect } from 'react-redux';
 import { fetchGlobalUsers } from './../../../../actions/index.js';
- import { getGlobalUsers } from './../../../../reducers/index.js';
+ import { getUsers } from './../../../../reducers/index.js';
 
 
 class Global extends Component {
 
-  componentWillMount() {
-    this.props.fetchGlobalUsers()
+  componentDidMount() {
+    this.props.fetchGlobalUsers('users')
   }
 
   displayProfiles() {
@@ -36,13 +36,15 @@ class Global extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: getGlobalUsers(state)
+    // users: [{name: 'matt', id: 1}, {name: 'charlie', id: 2}]
+    users: getUsers(state)
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGlobalUsers: () => dispatch(fetchGlobalUsers())
+    fetchGlobalUsers: () => dispatch(fetchGlobalUsers('users'))
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Global);
+//
+ export default connect(mapStateToProps, mapDispatchToProps)(Global);
+//export default Global;
