@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import GlobalProfiles from "./GlobalProfiles/GlobalProfiles.jsx";
 import styles from './Global.css';
 import { connect } from 'react-redux';
-import { fetchGlobalUsers } from './../../../../actions/index.js';
- import { getUsers } from './../../../../reducers/index.js';
+import { fetchGlobalUsers, fetchGlobalDogs } from './../../../../actions/index.js';
+ import { getUsers, getDogs } from './../../../../reducers/index.js';
 
 
 class Global extends Component {
 
   componentDidMount() {
-    this.props.fetchGlobalUsers('users')
+    this.props.fetchGlobalUsers('users').then(() => this.props.fetchGlobalDogs('dogs'))
+    //this.props.fetchGlobalDogs('dogs')
   }
 
   displayProfiles() {
@@ -37,12 +38,13 @@ class Global extends Component {
 const mapStateToProps = (state) => {
   return {
     // users: [{name: 'matt', id: 1}, {name: 'charlie', id: 2}]
-    users: getUsers(state)
+    users: getUsers(state),
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGlobalUsers: () => dispatch(fetchGlobalUsers('users'))
+    fetchGlobalUsers: () => dispatch(fetchGlobalUsers('users')),
+    fetchGlobalDogs: () => dispatch(fetchGlobalDogs('dogs'))
   }
 }
 //

@@ -34,7 +34,18 @@ export default store => next => action => {
   }
 
   // get api call information from the action
-  const { endpoint, types} = apiCall;
+  const { endpoint, types, method } = apiCall;
+
+  let config = method ? {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': retrieveLocalToken(),
+    },
+    body: JSON.stringify({
+      list: `[${state.entities.users.allIds}]`
+    })
+  } : undefined;
   // get action types to be used on fetch initiation/completion
   const [request, success, failure] = types;
 
@@ -53,7 +64,7 @@ export default store => next => action => {
   }))
 
   // do the fetch call
-  return callApi(endpoint).then((r) => r.json())
+  return callApi(endpoint, config).then((r) => r.json())
   .then((response) => {
     //dispatch an auth error action if the server failed the request auth
     if(response.authError) {

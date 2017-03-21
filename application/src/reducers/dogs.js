@@ -1,47 +1,49 @@
 import { combineReducers } from 'redux';
-import {REQUEST_GLOBAL_USERS,
-        RECIEVE_GLOBAL_USERS,
-        ERROR_GLOBAL_USERS } from './../actions/users.js'
+import {REQUEST_GLOBAL_DOGS,
+        RECIEVE_GLOBAL_DOGS,
+        ERROR_GLOBAL_DOGS } from './../actions/dogs.js'
 
 
-export const users = (state = {
+export const dogs = (state = {
   allIds: []
 }, action) => {
-  if(action.type === RECIEVE_GLOBAL_USERS) {
+  if(action.type === RECIEVE_GLOBAL_DOGS) {
     let userTable = {};
+    let allDogs = []
     let allIds = [];
-
-    action.data.forEach((item) => {
+    action.data.forEach((dogArr) =>{
+      allDogs = [...allDogs, ...dogArr]
+    })
+    allDogs.forEach((item) => {
       userTable[item.id] = item;
     })
-
     allIds = Object.keys(userTable);
-    return Object.assign({}, state, { allIds }, userTable)
+    return Object.assign({}, state, { allIds } , userTable)
   }
   return state;
 }
 
 
-export const user_api_status = (state = {
+export const dog_api_status = (state = {
   isFetching: false,
   errorFetching: false,
   requestedAt: '',
   updatedAt: 'no update',
 }, action) => {
   switch(action.type) {
-    case REQUEST_GLOBAL_USERS:
+    case REQUEST_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: true,
         errorFetching: false,
         requestedAt: new Date(),
       })
-    case RECIEVE_GLOBAL_USERS:
+    case RECIEVE_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: false,
         errorFetching: false,
         updatedAt: new Date()
       })
-    case ERROR_GLOBAL_USERS:
+    case ERROR_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: false,
         errorFetching: true
@@ -52,7 +54,7 @@ export const user_api_status = (state = {
 }
 
 // SELECTORS <--------------------------------
-export const getUsers = (state) =>
-  state.entities.users.allIds.map((userId) => {
-    return state.entities.users[userId];
+export const getDogs = (state) =>
+  state.entities.dogs.allIds.map((userId) => {
+    return state.entities.dogs[userId];
   })
