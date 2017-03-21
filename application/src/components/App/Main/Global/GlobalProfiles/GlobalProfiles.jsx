@@ -8,6 +8,7 @@ class GlobalProfiles extends Component {
       <div className='globalprofiles'>
         <Link to="/member" id="global-member-link"><img src={this.props.picture} /></Link>
         <p className="globalusername">{this.props.username}</p>
+        <div className="online"></div>
       </div>
     );
   }
