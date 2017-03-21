@@ -5,7 +5,7 @@ export const RECIEVE_GLOBAL_USERS = 'RECIEVE_GLOBAL_USERS';
 export const ERROR_GLOBAL_USERS = 'ERROR_GLOBAL_USERS';
 
 // request/recieve global users
-export function fetchGlobalUsers(stateSlice) {
+export const fetchGlobalUsers = (stateSlice)  => {
   return {
     [CALL_API]: {
       types: [REQUEST_GLOBAL_USERS, RECIEVE_GLOBAL_USERS, ERROR_GLOBAL_USERS],
