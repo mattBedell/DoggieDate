@@ -13,12 +13,16 @@
   text-align: center;
 }
 
-#global-member-link {
+#img-member-link {
   height: 97.5%;
   width: 97.5%;
 }
 
-.globalusername {
+#img-member-link:hover {
+  cursor: pointer;
+}
+
+#text-member-link {
   display: block;
   height: 100%;
   width: 100%;
@@ -28,8 +32,12 @@
   margin: 5% 0 0 6%;
   font-size: 14px;
   font-weight: bolder;
-  color: white;
+  text-decoration: none;
   text-shadow: .4px .4px .2em black;
+}
+
+.globalusername {
+  color: white;
 }
 
 .online {
