@@ -40,26 +40,4 @@
   margin: 0 2% 0 0;
 }
 
-.match-box {
-  height: 95%;
-  width: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 5%;
-}
 
-#match-button {
-  width: 100%;
-  border-radius: 100%;
-  transition: 0.5s;
-}
-
-#match-button:hover {
-  cursor: pointer;
-}
-
-#match-button.matched {
-  background-color: pink;
-}

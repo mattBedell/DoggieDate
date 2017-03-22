@@ -1,47 +1,47 @@
 import { combineReducers } from 'redux';
-import {REQUEST_GLOBAL_USERS,
-        RECIEVE_GLOBAL_USERS,
-        ERROR_GLOBAL_USERS } from './../actions/users.js'
+import {REQUEST_GLOBAL_DOGS,
+        RECIEVE_GLOBAL_DOGS,
+        ERROR_GLOBAL_DOGS } from './../actions/dogs.js'
 
 
-export const users = (state = {
+export const dogs = (state = {
   allIds: []
 }, action) => {
-  if(action.type === RECIEVE_GLOBAL_USERS) {
-    let userTable = {};
+  if(action.type === RECIEVE_GLOBAL_DOGS) {
+    let dogsTable = {};
     let allIds = [];
 
     action.data.forEach((item) => {
-      userTable[item.id] = item;
+      dogsTable[item.id] = item;
     })
 
-    allIds = Object.keys(userTable);
-    return Object.assign({}, state, { allIds }, userTable)
+    allIds = Object.keys(dogsTable);
+    return Object.assign({}, state, { allIds }, dogsTable)
   }
   return state;
 }
 
 
-export const user_api_status = (state = {
+export const dog_api_status = (state = {
   isFetching: false,
   errorFetching: false,
   requestedAt: '',
   updatedAt: 'no update',
 }, action) => {
   switch(action.type) {
-    case REQUEST_GLOBAL_USERS:
+    case REQUEST_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: true,
         errorFetching: false,
         requestedAt: new Date(),
       })
-    case RECIEVE_GLOBAL_USERS:
+    case RECIEVE_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: false,
         errorFetching: false,
         updatedAt: new Date()
       })
-    case ERROR_GLOBAL_USERS:
+    case ERROR_GLOBAL_DOGS:
       return Object.assign({}, state, {
         isFetching: false,
         errorFetching: true
@@ -52,14 +52,14 @@ export const user_api_status = (state = {
 }
 
 // SELECTORS <--------------------------------
-export const getUsers = (state) =>
-  state.entities.users.allIds.map((userId) => {
-    return state.entities.users[userId];
+export const getDogs = (state) =>
+  state.entities.dogs.allIds.map((userId) => {
+    return state.entities.dogs[userId];
   })
 
-// export const getGlobalUsers = (state) =>
+// export const getGlobaldogs = (state) =>
 //   state.user_ids.map((userId) => {
-//     return state.users.data[userId];
+//     return state.dogs.data[userId];
 //   })
 
 
@@ -77,7 +77,7 @@ export const getUsers = (state) =>
   //
   // const user_ids = (state = [], action) => {
   //   switch(action.type) {
-  //     case 'RECIEVE_GLOBAL_USERS':
+  //     case 'RECIEVE_GLOBAL_DOGS':
   //       return getUserIds(action.data)
   //
   //     default:
@@ -87,29 +87,29 @@ export const getUsers = (state) =>
   //
   // const data = (state = {}, action) => {
   //   switch(action.type) {
-  //     case 'RECIEVE_GLOBAL_USERS':
-  //       let users = Object.assign({}, )
+  //     case 'RECIEVE_GLOBAL_DOGS':
+  //       let dogs = Object.assign({}, )
   //   }
   // }
 
-  // const users = (state = {
+  // const dogs = (state = {
   //   isFetching: false,
   //   requestedAt: '',
   //   updatedAt: 'no update',
   //   data: []
   // }, action) => {
   //   switch(action.type) {
-  //     case 'REQUEST_GLOBAL_USERS':
+  //     case 'REQUEST_GLOBAL_DOGS':
   //     return Object.assign({}, state, {
   //       isFetching: true,
   //       requestedAt: new Date()
   //     })
-  //     case 'RECIEVE_GLOBAL_USERS':
+  //     case 'RECIEVE_GLOBAL_DOGS':
   //     return Object.assign({}, state, {
   //       isFetching: false,
   //       updatedAt: new Date()
   //     })
-  //     case 'ERROR_GLOBAL_USERS':
+  //     case 'ERROR_GLOBAL_DOGS':
   //     return Object.assign({}, state, {
   //       errorFetching: true,
   //       isFetching: false,

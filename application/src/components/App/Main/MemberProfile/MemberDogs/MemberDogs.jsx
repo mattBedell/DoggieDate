@@ -6,6 +6,7 @@ class MemberDogs extends Component {
   render() {
     return (
       <div className='memberdogs'>
+        <MemberDogsInfo />
         <div className="dog-pic-box">
           <img src="" alt="dog pic" />
           <img src="" alt="dog pic" />
@@ -13,7 +14,6 @@ class MemberDogs extends Component {
           <img src="" alt="dog pic" />
           <img src="" alt="dog pic" />
         </div>
-        <MemberDogsInfo />
       </div>
     );
   }

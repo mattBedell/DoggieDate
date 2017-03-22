@@ -23,20 +23,7 @@ function getMatches(req, res, next) {
   })
 }
 
-function getGlobalUsers(req, res, next) {
-  db.any({
-    name: 'get user',
-    text: `SELECT first, last, username, zip, picture, id FROM members WHERE picture != 'null'`
-  })
-  .then((userData) => {
-    res.data = userData;
-    next()
-  })
-  .catch((err) => {
-    console.log(`Error: user getGlobalUsers: ${err}`);
-    next(err);
-  })
-}
+
 
 function getMyInfo(req, res, next) {
   db.one({
@@ -110,6 +97,5 @@ module.exports = {
   getDogs,
   getDogAttributes,
   prepareResponse,
-  getGlobalUsers,
   getMatches
 }
