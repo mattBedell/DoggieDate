@@ -22,7 +22,6 @@ const simulateNetworkDelay = (req, res, next) => {
 router.route('/seed/:numberOfSeeds')
   .get(seedDb, (req, res, next) => { res.send('done...')})
 
-router.route('/')
-  .get(simulateNetworkDelay, auth.validateToken, user.getGlobalUsers, (req, res, next) => res.json(res.data))
+
 
 module.exports = router;

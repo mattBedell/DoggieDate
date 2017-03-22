@@ -50,7 +50,7 @@ ReactDOM.render(
           <Route path='/nearby' component={Nearby} />
           <Route path='/matches' component={Matches} />
           <Route path='/chat' component={Chat} />
-          <Route path='/profile/(:username)' component={MyProfile} />
+          <Route path='/profile' component={MyProfile} />
           <Route path='/member' component={MemberProfile} />
           <Route path='/notifications' component={Notifications} />
           <Route path="/search" component={SearchResults} />

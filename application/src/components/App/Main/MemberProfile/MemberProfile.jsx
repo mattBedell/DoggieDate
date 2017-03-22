@@ -7,8 +7,8 @@ class MemberProfile extends Component {
   render() {
     return (
       <div className='memberprofile'>
-        <MemberInfo />
         <MemberDogs />
+        <MemberInfo />
       </div>
     );
   }

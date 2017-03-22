@@ -1,15 +1,19 @@
 .mainheader {
   height: 5%;
-  width: 100%;
-  box-sizing: border-box;
-  border-bottom: 1px solid lightgrey;
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+  box-sizing: border-box;
+  border-bottom: 1px solid grey;
 }
 
 .mainheader h2 {
-  margin: 0 0 0 2%;
+  margin: 0 0 0 1.5%;
   font-size: 15px;
+  color: rgb(105, 105, 105);
 }
