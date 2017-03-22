@@ -3,8 +3,7 @@ import GlobalProfiles from "./GlobalProfiles/GlobalProfiles.jsx";
 import styles from './Global.css';
 import { connect } from 'react-redux';
 import { fetchGlobalUsers } from './../../../../actions/index.js';
- import { getUsers } from './../../../../reducers/index.js';
-
+import { getUsers } from './../../../../reducers/index.js';
 
 class Global extends Component {
 

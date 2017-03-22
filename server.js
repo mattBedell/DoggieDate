@@ -11,7 +11,7 @@ const dogsRoute = require('./routes/dogs.js');
 const app = express();
 
 const isDev = process.env.NODE_ENV || true;
-const config = path.join(__dirname, '/webpack.config.js');
+const config = require(path.join(__dirname, '/webpack.config.js'));
 const compiler = webpack(config);
 
 app.use(bodyParser.json());
