@@ -10,7 +10,6 @@ const loginRoute = require('./routes/login.js');
 const usersRoute = require('./routes/users.js');
 const dogsRoute = require('./routes/dogs.js');
 
-console.log(process.env.DB_HOST, process.env.DB_DATABASE)
 const isDev = process.env.NODE_ENV || true;
 const config = require(path.join(__dirname, '/webpack.config.js'));
 const compiler = webpack(config);
