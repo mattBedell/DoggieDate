@@ -4,10 +4,11 @@ import { Link } from 'react-router';
 
 class GlobalProfiles extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className='globalprofiles'>
-        <Link to="/member" id="img-member-link"><img src={this.props.picture} /></Link>
-        <Link to="/member" id="text-member-link"><p className="globalusername">{this.props.name}</p></Link>
+        <div onClick={() => this.props.router.push(`/dog/${this.props.id}`)} id="img-member-link"><img src={this.props.picture} /></div>
+        <div onClick={() => this.props.router.push(`/dog/${this.props.id}`)} id="text-member-link"><p className="globalusername">{this.props.name}</p></div>
         <div className="online"></div>
       </div>
     );
