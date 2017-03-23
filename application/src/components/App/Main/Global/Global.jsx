@@ -23,6 +23,8 @@ class Global extends Component {
           key={`gProfile${profile.id}`}
           name={profile.name}
           picture={profile.picture}
+          id={profile.id}
+          router={this.props.router}
         />
        )
       })
@@ -45,7 +47,7 @@ const mapStateToProps = (state) => {
   return {
     // dogs: [{name: 'matt', id: 1}, {name: 'charlie', id: 2}]
     dogs: getDogs(state),
-    filter: getFilter(state)
+    filter: getFilter(state),
   }
 }
 const mapDispatchToProps = (dispatch) => {
