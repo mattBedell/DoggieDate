@@ -51,7 +51,7 @@ ReactDOM.render(
           <Route path='/matches' component={Matches} />
           <Route path='/chat' component={Chat} />
           <Route path='/profile' component={MyProfile} />
-          <Route path='/member' component={MemberProfile} />
+          <Route path='/dog/:id' component={MemberProfile} />
           <Route path='/notifications' component={Notifications} />
           <Route path="/search" component={SearchResults} />
         </Route>
