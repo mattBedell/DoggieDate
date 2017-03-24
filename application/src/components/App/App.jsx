@@ -5,6 +5,7 @@ import SideBar from './../App/SideBar/SideBar.jsx';
 import Footer from  './../App/Footer/Footer.jsx';
 import styles from './App.css';
 
+
 class App extends Component {
   render() {
     return (

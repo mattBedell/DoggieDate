@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import GlobalProfiles from './GlobalProfiles/GlobalProfiles.jsx';
 import styles from './Global.css';
 import { connect } from 'react-redux';
-import { fetchGlobalDogs, changeFilter } from './../../../../actions/index.js';
-import { getDogs } from './../../../../reducers/index.js';
-import { getFilter } from './../../../../reducers/filter.js';
+import { fetchGlobalDogs, changeFilter } from './../../../actions/index.js';
+import { getDogs } from './../../../reducers/index.js';
+import { getFilter } from './../../../reducers/filter.js';
 import MainHeader from './../MainHeader/MainHeader.jsx';
 
 
