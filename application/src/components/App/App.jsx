@@ -15,10 +15,12 @@ class App extends Component {
       <div className='app'>
         <Header />
         <div className="center">
-          <Switch>
-            <Route path="/dogs" component={MemberDogs} />
-            <Route path="/global" render={() => <Global />} />
-          </Switch>
+          <div className="main">
+            <Switch>
+              <Route path="/dogs" component={MemberDogs} />
+              <Route path="/global" render={() => <Global />} />
+            </Switch>
+          </div>
           <SideBar />
         </div>
         <Footer />
