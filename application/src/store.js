@@ -1,9 +1,16 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import throttle from 'lodash/throttle';
+
+import { createBrowserHistory } from 'history';
+import { routerMiddleware } from 'react-router-redux';
+
 import rootReducer from './reducers/index.js';
 import fetchMiddleware from './utils/getDataMiddleware.js';
+
+export const history = createBrowserHistory();
+const routerReduxMiddleware = routerMiddleware(history);
 
 const logger = createLogger();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -31,11 +38,11 @@ const saveLocalState = (state) => {
 };
 
 const store = createStore(rootReducer, getSavedState(),
-    composeEnhancers(applyMiddleware(thunk, fetchMiddleware, logger))
+    composeEnhancers(applyMiddleware(thunk, fetchMiddleware, routerReduxMiddleware, logger))
 );
 store.subscribe(throttle(() => {
   saveLocalState(store.getState());
-}));
+}, 1000));
 
 export default store;
 

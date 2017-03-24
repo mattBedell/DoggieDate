@@ -7,8 +7,8 @@ class ChatSmall extends Component {
   render() {
     return (
       <div className='chatsmall'>
-        <Link to='/member' id="chat-member-link"><img src={prof} alt='pic' /></Link>
-        <Link to='/chat' id="chat-link"><p>Profile Name</p></Link>
+        {/*<Link to='/member' id="chat-member-link"><img src={prof} alt='pic' /></Link>
+        <Link to='/chat' id="chat-link"><p>Profile Name</p></Link>*/}
       </div>
     );
   }

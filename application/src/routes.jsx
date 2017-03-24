@@ -13,16 +13,15 @@ import SearchResults from './components/App/SearchResults/SearchResults.jsx'
 
 export default function(newApp = App) {
     return (
-        <Route path='/' component={newApp}>
-            <IndexRoute component={Global} />
-            <Route path='/global' component={Global} />
-            <Route path='/nearby' component={Nearby} />
-            <Route path='/matches' component={Matches} />
-            <Route path='/chat' component={Chat} />
-            <Route path='/profile' component={MyProfile} />
-            <Route path='/dog/:id' component={MemberProfile} />
-            <Route path='/notifications' component={Notifications} />
-            <Route path="/search" component={SearchResults} />
-        </Route>
+        <Route path='/' component={App} />
     );
 }
+
+        //     <Route path='/nearby' component={Nearby} />
+        //     <Route path='/matches' component={Matches} />
+        //     <Route path='/chat' component={Chat} />
+        //     <Route path='/profile' component={MyProfile} />
+        //     <Route path='/dog/:id' component={MemberProfile} />
+        //     <Route path='/notifications' component={Notifications} />
+        //     <Route path="/search" component={SearchResults} />
+        // </Route>*/
