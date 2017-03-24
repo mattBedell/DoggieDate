@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 
 class GlobalProfiles extends Component {
   render() {
-    console.log(this.props)
     return (
       <div className='globalprofiles'>
         <div onClick={() => this.props.router.push(`/dog/${this.props.id}`)} id="img-member-link"><img src={this.props.picture} /></div>
