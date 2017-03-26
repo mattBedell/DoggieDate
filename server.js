@@ -11,9 +11,7 @@ const usersRoute = require('./routes/users.js');
 const dogsRoute = require('./routes/dogs.js');
 const attrRoute = require('./routes/attributes.js')
 
-const isDev = process.env.NODE_ENV || true;
-const config = require(path.join(__dirname, '/webpack.config.js'));
-const compiler = webpack(config);
+const isDev = process.env.NODE_ENV ? false : true;
 
 app.use(bodyParser.json());
 
@@ -25,6 +23,8 @@ app.use('/api/attributes', attrRoute);
 app.use(history());
 
 if (isDev) {
+  const config = require(path.join(__dirname, '/webpack.config.js'));
+  const compiler = webpack(config);
   app.use(logger('dev'));
   app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: config.output.publicPath,
