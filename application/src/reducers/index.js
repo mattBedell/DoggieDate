@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import * as dogs from './dogs.js';
 import filter from './filter.js';
+import { routerReducer } from 'react-router-redux';
 
 
 // This importing and exporting is for when things start to scale up
@@ -12,6 +13,7 @@ const entities = combineReducers({
 export default combineReducers({
   dogs: dogs.dog_api_status,
   filter,
+  router: routerReducer,
   entities
 })
 

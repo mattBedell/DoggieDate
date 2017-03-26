@@ -9,8 +9,8 @@ const simulateNetworkDelay = (req, res, next) => {
     next()
   }, 2000)
 }
-// router.route('/:id')
-//   .get(user.getMyInfo, user.getDogs, user.getDogAttributes, user.prepareResponse, (req, res, next) => {res.send(res.rows) })
+router.route('/:id')
+  .get(user.getMyInfo, (req, res, next) => {res.send(res.userData) })
 
 // GET CHATS ROUTE FOR TESTING PURPOSES
 // router.route('/getMatches')

@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import GlobalProfiles from './GlobalProfiles/GlobalProfiles.jsx';
 import styles from './Global.css';
 import { connect } from 'react-redux';
-import { fetchGlobalDogs, changeFilter } from './../../../../actions/index.js';
-import { getDogs } from './../../../../reducers/index.js';
-import { getFilter } from './../../../../reducers/filter.js';
+import { fetchGlobalDogs, changeFilter } from './../../../actions/index.js';
+import { getDogs } from './../../../reducers/index.js';
+import { getFilter } from './../../../reducers/filter.js';
 import MainHeader from './../MainHeader/MainHeader.jsx';
 
 
 class Global extends Component {
 
   componentDidMount() {
-    this.props.fetchGlobalDogs(),
-    this.props.changeFilter('Global')
+    this.props.fetchGlobalDogs()
   }
 
   displayProfiles() {
@@ -24,7 +23,7 @@ class Global extends Component {
           name={profile.name}
           picture={profile.picture}
           id={profile.id}
-          router={this.props.router}
+          history={this.props.history}
         />
        )
       })
@@ -45,7 +44,6 @@ class Global extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // dogs: [{name: 'matt', id: 1}, {name: 'charlie', id: 2}]
     dogs: getDogs(state),
     filter: getFilter(state),
   }

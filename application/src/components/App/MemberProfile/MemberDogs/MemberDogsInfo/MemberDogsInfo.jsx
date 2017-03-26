@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './MemberDogsInfo.css';
-import iconM from "./../../../../../../../assets/icon-match.png";
+import iconM from "./../../../../../../assets/icon-match.png";
 
 class MemberDogsInfo extends Component {
 
