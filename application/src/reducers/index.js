@@ -20,3 +20,6 @@ export default combineReducers({
 export const getDogs = (state) => {
   return dogs.getDogs(state);
 }
+
+export const getDog = (state, id) => 
+  dogs.getDog(state, id);
