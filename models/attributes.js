@@ -9,7 +9,11 @@ function getAllAttributes(req, res, next) {
     res.data = data;
     next()
   }).catch((err) => {
-    console.log("--> Err getAllAttributes");
+    console.log('--> Err getAllAttributes');
     next(err);
-  })
+  });
 }
+
+module.exports = {
+  getAllAttributes,
+};
