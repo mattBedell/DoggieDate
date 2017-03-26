@@ -10,4 +10,6 @@ const sendResponse = (req, res, next) => {
 router.route('/')
   .get(delay, auth.validateToken, attr.getAllAttributes, sendResponse)
 
+router.route('/:id')
+  .get(delay, auth.validateToken, attr.getAttributesById, sendResponse)
 module.exports = router;
