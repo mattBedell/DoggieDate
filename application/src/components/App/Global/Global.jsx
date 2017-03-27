@@ -10,7 +10,7 @@ import MainHeader from './../MainHeader/MainHeader.jsx';
 class Global extends Component {
 
   componentDidMount() {
-    //this.props.fetchGlobalDogs()
+    this.props.fetchGlobalDogs()
     this.props.fetchAttributes()
   }
 

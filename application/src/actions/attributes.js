@@ -13,3 +13,17 @@ export const fetchAttributes =  (stateSlice) => {
     },
   };
 };
+
+export const REQUEST_ATTRS_BY_ID = 'REQUEST_ATTRS_BY_ID';
+export const RECIEVE_ATTRS_BY_ID = 'RECIEVE_ATTRS_BY_ID';
+export const ERROR_ATTRS_BY_ID = 'ERROR_ATTRS_BY_ID';
+
+export const fetchAttributesById = (stateSlice, dogId) => {
+  return {
+    [CALL_API]: {
+      types: [REQUEST_ATTRS_BY_ID, RECIEVE_ATTRS_BY_ID, ERROR_ATTRS_BY_ID],
+      endpoint: `attributes/${dogId}`,
+      stateSlice,
+    },
+  };
+};

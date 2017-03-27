@@ -9,11 +9,13 @@ import { routerReducer } from 'react-router-redux';
 const entities = combineReducers({
   dogs: dogs.dogs,
   attributes: attrs.attributes,
+  dog_attrs: attrs.dog_attrs,
 });
 
 export default combineReducers({
   dogs: dogs.dog_api_status,
   attributes: attrs.attr_api_status,
+  dog_attrs: attrs.dog_attr_api_status,
   router: routerReducer,
   entities,
 });
@@ -23,3 +25,6 @@ export const getDogs = (state) =>
 
 export const getDog = (state, id) => 
   dogs.getDog(state, id);
+
+export const getAttributes = (state, id) => 
+  attrs.getAttributes(state, id);

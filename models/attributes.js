@@ -1,8 +1,9 @@
 const db = require('./../lib/dbConnect.js');
 
-function flattenAttributes(data) {
-  return data.map((attr) =>
-    attr.id);
+function flattenAttributes(data, id) {
+  const attrIds = {};
+  attrIds[id] = data.map((attr) => attr.id);
+  return attrIds;
 }
 
 function getAllAttributes(req, res, next) {
@@ -25,7 +26,7 @@ function getAttributesById(req, res, next) {
     values: [req.params.id],
   })
   .then((data) => {
-    res.data = flattenAttributes(data);
+    res.data = flattenAttributes(data, req.params.id);
     next();
   });
 }
