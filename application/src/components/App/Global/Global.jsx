@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import GlobalProfiles from './GlobalProfiles/GlobalProfiles.jsx';
 import styles from './Global.css';
 import { connect } from 'react-redux';
-import { fetchGlobalDogs, changeFilter } from './../../../actions/index.js';
+import { fetchGlobalDogs, fetchAttributes } from './../../../actions/index.js';
 import { getDogs } from './../../../reducers/index.js';
-import { getFilter } from './../../../reducers/filter.js';
 import MainHeader from './../MainHeader/MainHeader.jsx';
 
 
@@ -12,6 +11,7 @@ class Global extends Component {
 
   componentDidMount() {
     this.props.fetchGlobalDogs()
+    this.props.fetchAttributes()
   }
 
   displayProfiles() {
@@ -25,16 +25,15 @@ class Global extends Component {
           id={profile.id}
           history={this.props.history}
         />
-       )
+      );
       })
-    )
+    );
   }
 
   render() {
     return (
       <div className='global'>
         <MainHeader
-          filter={this.props.filter}
         />
         <div className='global-profile-view'> {this.displayProfiles()} </div>
       </div>
@@ -45,15 +44,14 @@ class Global extends Component {
 const mapStateToProps = (state) => {
   return {
     dogs: getDogs(state),
-    filter: getFilter(state),
-  }
-}
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchGlobalDogs: () => dispatch(fetchGlobalDogs('dogs')),
-    changeFilter: (filter) => dispatch(changeFilter(filter))
-  }
-}
+    fetchAttributes: () => dispatch(fetchAttributes('attributes')),
+  };
+};
 //
- export default connect(mapStateToProps, mapDispatchToProps)(Global);
-//export default Global;
+export default connect(mapStateToProps, mapDispatchToProps)(Global);
+

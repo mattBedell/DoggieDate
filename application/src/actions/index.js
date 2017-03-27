@@ -1,8 +1,8 @@
 import { fetchGlobalDogs } from './dogs.js';
-import { changeFilter } from './filter.js';
+import { fetchAttributes, fetchAttributesById } from './attributes.js';
 // This importing and exporting is for when things start to scale up
-
 export {
   fetchGlobalDogs,
-  changeFilter
-}
+  fetchAttributes,
+  fetchAttributesById,
+};

@@ -2,13 +2,8 @@ const router = require('express').Router();
 const user = require('./../models/users.js');
 const auth = require('./../lib/auth.js');
 const { seedDb } = require('./../models/makeUsers.js');
+const delay = require('./../lib/networkDelay.js')(3000);
 
-// Simulate delay of response for testing front end
-const simulateNetworkDelay = (req, res, next) => {
-  setTimeout(() => {
-    next()
-  }, 2000)
-}
 router.route('/:id')
   .get(user.getMyInfo, (req, res, next) => {res.send(res.userData) })
 

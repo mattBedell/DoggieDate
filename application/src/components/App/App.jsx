@@ -16,10 +16,8 @@ class App extends Component {
         <Header />
         <div className="center">
           <div className="main">
-            <Switch>
-              <Route path="/dogs" component={MemberDogs} />
-              <Route path="/global" render={() => <Global />} />
-            </Switch>
+            <Route exact path="/" component={Global} />
+            <Route path="/dog/:id" component={MemberDogs} />
           </div>
           <SideBar />
         </div>

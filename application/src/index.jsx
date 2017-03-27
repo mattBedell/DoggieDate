@@ -14,7 +14,7 @@ const rootContainer = document.getElementById('root-container');
 const root = () => (
   <ConnectedRouter history={history}>
     <div>
-      {routes()}
+      <Route path="/" component={App} />
     </div>
   </ConnectedRouter>
 );

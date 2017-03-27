@@ -5,7 +5,7 @@ class MainHeader extends Component {
   render() {
     return (
       <div className='mainheader'>
-        <h2>{this.props.filter}</h2>
+        <h2></h2>
       </div>
     );
   }
