@@ -8,7 +8,7 @@ const toggleMatch = (e) => {
 };
 
 const mapAttributes = (props) =>
-  props.attrs.map((attr) => <p key={`attr${props.id}${Math.random()}`}>{attr.attribute}</p>)
+  props.attrs.map((attr) => <div key={`attr${props.id}${attr.id}${Math.random()}`}>{attr.attribute}</div>)
 
 const MemberDogsInfo = (props) => {
   return (
@@ -18,7 +18,7 @@ const MemberDogsInfo = (props) => {
         <div className="memberdogsinfo-text-box"><p>Name:</p><p>{props.name}</p></div>
         <div className="memberdogsinfo-text-box"><p>Age:</p><p>{props.age}</p></div>
         <div className="memberdogsinfo-text-box"><p>Weight:</p><p>{props.weight}</p></div>
-        <div className="memberdogsinfo-text-box"><p>Attributes:</p><p>{mapAttributes(props)}</p></div>
+        <div className="memberdogsinfo-text-box"><p>Attributes:</p><div>{mapAttributes(props)}</div></div>
       </div>
       <div className="match-box">
         <img id="match-button" onClick={(e) => toggleMatch(e)} src={iconM} alt="match" /></div>
