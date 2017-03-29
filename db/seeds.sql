@@ -8,14 +8,8 @@ INSERT INTO members(first, last, username, password, email, zip, picture) VALUES
 ('Shmaaron', 'Shmonklin', 'eyyyyyy', 'efjijefiof', 'eoieioiv.aaron@gmail.com', '10010', null),
 ('Aa', 'Covdjoidin', 'aConkvdolin', 'hashooo12345', 'conklijicin.aaron@gmail.com', '10010', null);
 
-INSERT INTO matches(member, match) VALUES
-(1, 2),
-(4, 3),
-(4, 1),
-(2, 3);
-
 INSERT INTO dogs (member_id, name, age, weight, picture) VALUES
-(1, 'Tucker', 16, 20, null),
+(1, 'Tucker', 16, 20, 'https://lh4.googleusercontent.com/VqnbS5_cVCQqQW8f8_Ly2uVoLPbUCo0ySg8JRHoPDSyXgXQ5xqzZw9xc5-8s59uEQZIz_XLn1cBeeHw=w2560-h1452-rw'),
 (1, 'Luigi', 10, 10, null),
 (2, 'Frenchy', 1, 10, null);
 

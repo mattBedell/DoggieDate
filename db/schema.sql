@@ -13,14 +13,17 @@ picture VARCHAR
 
 CREATE TABLE requests (
 id SERIAL PRIMARY KEY,
-requester INT REFERENCES members (id) ON DELETE CASCADE,
-requestee INT REFERENCES members (id) ON DELETE CASCADE
+max_id INT REFERENCES members (id) ON DELETE CASCADE,
+min_id INT REFERENCES members (id) ON DELETE CASCADE,
+by_id INT REFERENCES members(id) ON DELETE CASCADE,
+UNIQUE(max_id, min_id)
 );
 
 CREATE TABLE matches (
 id SERIAL PRIMARY KEY,
-member INT REFERENCES members (id) ON DELETE CASCADE,
-match INT REFERENCES members (id) ON DELETE CASCADE
+max_id INT REFERENCES members (id) ON DELETE CASCADE,
+min_id INT REFERENCES members (id) ON DELETE CASCADE,
+UNIQUE(max_id, min_id)
 );
 
 CREATE TABLE posts (

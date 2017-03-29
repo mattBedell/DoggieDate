@@ -9,7 +9,8 @@ require('dotenv').config();
 const loginRoute = require('./routes/login.js');
 const usersRoute = require('./routes/users.js');
 const dogsRoute = require('./routes/dogs.js');
-const attrRoute = require('./routes/attributes.js')
+const attrRoute = require('./routes/attributes.js');
+const matchRoute = require('./routes/match.js');
 
 const isDev = process.env.NODE_ENV ? false : true;
 
@@ -19,6 +20,7 @@ app.use('/login', loginRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/dogs', dogsRoute);
 app.use('/api/attributes', attrRoute);
+app.use('/api/match', matchRoute);
 
 app.use(history());
 
