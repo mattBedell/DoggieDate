@@ -5,12 +5,12 @@ export const RECIEVE_GLOBAL_DOGS = 'RECIEVE_GLOBAL_DOGS';
 export const ERROR_GLOBAL_DOGS = 'ERROR_GLOBAL_DOGS';
 
 // request/recieve global users
-export const fetchGlobalDogs = (stateSlice)  => {
+export const fetchGlobalDogs = ()  => {
   return {
     [CALL_API]: {
       types: [REQUEST_GLOBAL_DOGS, RECIEVE_GLOBAL_DOGS, ERROR_GLOBAL_DOGS],
       endpoint: 'dogs/',
-      stateSlice
-    }
-  }
-}
+      stateSlice: 'dogs',
+    },
+  };
+};

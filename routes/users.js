@@ -1,21 +1,18 @@
 const router = require('express').Router();
-const user = require('./../models/users.js');
+const users = require('./../models/users.js');
 const auth = require('./../lib/auth.js');
 const { seedDb } = require('./../models/makeUsers.js');
 const delay = require('./../lib/networkDelay.js')(3000);
 
-router.route('/:id')
-  .get(user.getMyInfo, (req, res, next) => {res.send(res.userData) })
+const sendResponse = (req, res, next) => {
+  res.json(res.data)
+};
 
-// GET CHATS ROUTE FOR TESTING PURPOSES
-// router.route('/getMatches')
-//   .get(auth.validateToken, getMatches, (req, res, next) => { res.json(Object.assign(res.data, res.auth))})
+router.route('/')
+  .get(delay, auth.validateToken, users.getGlobalUsers, sendResponse);
 
-// ROUTE TO SEED DATABASE OF FAKE USERS
-// router.route('/makeUsers')
-//   .get()
 router.route('/seed/:numberOfSeeds')
-  .get(seedDb, (req, res, next) => { res.send('done...')})
+  .get(seedDb, (req, res, next) => { res.send('done...')});
 
 
 
