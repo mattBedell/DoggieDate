@@ -65,7 +65,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAttributesById: (id) => dispatch(fetchAttributesById('dog_attrs', id)),
+    fetchAttributesById: (id) => dispatch(fetchAttributesById(id)),
   };
 };
 
