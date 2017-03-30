@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import * as dogs from './dogs.js';
 import * as attrs from './attributes.js';
+import filters, * as getFilters from './filters.js'
 import { routerReducer } from 'react-router-redux';
 
 
@@ -17,6 +18,7 @@ export default combineReducers({
   attributes: attrs.attr_api_status,
   dog_attrs: attrs.dog_attr_api_status,
   router: routerReducer,
+  filters,
   entities,
 });
 
@@ -28,3 +30,9 @@ export const getDog = (state, id) =>
 
 export const getAttributes = (state, id) => 
   attrs.getAttributes(state, id);
+
+export const getViewFilter = (state) =>
+  getFilters.getViewFilter(state);
+
+export const getParamFilter = (state) =>
+  getFilters.getParamFilter(state);
