@@ -1,36 +1,32 @@
-import throttle from 'lodash/throttle';
-
 export const CALL_API = 'API';
 
-const retrieveLocalToken = () => {
-  let token = localStorage.getItem('token') || 'none';
+export const retrieveLocalToken = () => {
+  const token = localStorage.getItem('token') || 'none';
   return token;
-}
+};
 
 const callApi = (endpoint, config = {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
     'Authorization': retrieveLocalToken()
-  }
-}) => {
+  },
+}) => fetch(`/api/${endpoint}`, config)
+        .then(response => response);
 
-  return fetch(`/api/${endpoint}`, config)
-          .then((response) => response)
-}
 
-export default store => next => action => {
+export default store => next => (action) => {
   const apiCall = action[CALL_API];
   const state = store.getState();
 
   // if the action object does not have an api call key then go to next middleware
   // and proceed as normal
-  if(!apiCall) {
+  if (!apiCall) {
     return next(action);
   }
- 
+
   // get api call information from the action
-  const { endpoint, types} = apiCall;
+  const { endpoint, types } = apiCall;
   // get action types to be used on fetch initiation/completion
   const [request, success, failure] = types;
 
@@ -40,36 +36,36 @@ export default store => next => action => {
     const actionToDispatch = Object.assign({}, action, data);
     // remove API key from action so this middleware doesn't catch it and run again
     delete actionToDispatch[CALL_API];
-    return actionToDispatch
-  }
-  
-   // ADD CHECK FOR ISFETCHING TO PREVENT RACE CONDITIONS HERE <-----------------------------
+    return actionToDispatch;
+  };
+  // ADD CHECK FOR ISFETCHING TO PREVENT RACE CONDITIONS HERE <-----------------------------
   // if(state[action[CALL_API].stateSlice].isFetching) {
   //   return
   // }
 
   // dispatch a request action with a request type
   next(makeDispatchAction({
-    type: request
-  }))
+    type: request,
+  }));
 
   // do the fetch call
-  return callApi(endpoint).then((r) => r.json())
+  return callApi(endpoint).then(r => r.json())
   .then((response) => {
-    //dispatch an auth error action if the server failed the request auth
-    if(response.authError) {
+    // dispatch an auth error action if the server failed the request auth
+    if (response.authError) {
       return next(makeDispatchAction({
         type: 'AUTH_ERROR',
-        message: response.authError.message
-      }))
+        message: response.authError.message,
+      }));
     }
     // dispatch a success action with requested data
     return next(makeDispatchAction({
       type: success,
       data: response
-    }))
-  })
-}
+    }));
+  });
+};
+
 
 
 
