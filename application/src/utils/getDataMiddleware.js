@@ -26,14 +26,14 @@ export default store => next => (action) => {
   }
 
   // get api call information from the action
-  const { endpoint, types } = apiCall;
+  const { endpoint, types, stateSlice } = apiCall;
   // get action types to be used on fetch initiation/completion
   const [request, success, failure] = types;
 
   // generate action to be dispatched without API key and with correct type and data
   const makeDispatchAction = (data) => {
     // add data to original action
-    const actionToDispatch = Object.assign({}, action, data);
+    const actionToDispatch = Object.assign({}, action, data, { stateSlice });
     // remove API key from action so this middleware doesn't catch it and run again
     delete actionToDispatch[CALL_API];
     return actionToDispatch;
