@@ -1,0 +1,22 @@
+{
+  "name": "doggie_date_api",
+  "version": "1.0.0",
+  "description": "Doggie Date API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Matt Bedell, Aaron Conklin",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.2",
+    "morgan": "^1.8.2",
+    "pg-promise": "^6.3.7",
+    "winston": "^2.3.1"
+  }
+}
