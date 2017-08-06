@@ -1,0 +1,5 @@
+module.exports = function(router, baseRoute) {
+  router.get(`/${baseRoute}`, (req, res, next) => {
+
+  })
+};
