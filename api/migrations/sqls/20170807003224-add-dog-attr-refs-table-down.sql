@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS dog_attr_refs CASCADE;

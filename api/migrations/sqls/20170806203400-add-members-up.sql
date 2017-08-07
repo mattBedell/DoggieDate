@@ -1,1 +1,10 @@
-/* Replace with your SQL commands */
+CREATE TABLE members (
+id SERIAL PRIMARY KEY,
+first VARCHAR(20) NOT NULL,
+last VARCHAR(20) NOT NULL,
+username VARCHAR(50) UNIQUE NOT NULL ,
+password VARCHAR NOT NULL,
+email VARCHAR UNIQUE NOT NULL,
+zip CHAR(10) NOT NULL,
+picture VARCHAR
+);

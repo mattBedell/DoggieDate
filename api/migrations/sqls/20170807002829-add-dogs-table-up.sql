@@ -1,0 +1,8 @@
+CREATE TABLE dogs (
+id SERIAL PRIMARY KEY,
+member_id INT REFERENCES members(id) ON DELETE CASCADE,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+weight INT NOT NULL,
+picture VARCHAR
+);
